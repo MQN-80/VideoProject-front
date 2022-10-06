@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutDescription="@xml/motion_scene_splash"
         tools:context=".MainActivity"
         tools:ignore="MissingConstraints">
 
@@ -87,34 +86,35 @@
                 android:textSize="14sp" />
 
         <EditText
-                android:id="@+id/login_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/edittext_bg"
-                android:drawableStart="@drawable/custom_email_icon"
+                android:drawableStart="@drawable/ic_baseline_email_24"
+                android:drawableLeft="@drawable/ic_baseline_email_24"
                 android:drawablePadding="16dp"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="16dp"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
         <EditText
-                android:id="@+id/login_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/edittext_bg"
-                android:drawableStart="@drawable/custom_lock_icon"
+                android:drawableStart="@drawable/ic_baseline_lock_24"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:drawableEnd="@drawable/ic_baseline_visibility_24"
                 android:drawableRight="@drawable/ic_baseline_visibility_24"
+
                 android:drawablePadding="16dp"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="16dp"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
+
         <Button
-                android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -143,7 +143,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Don't have an account?Register Here"
-            android:textColor="@color/textDescription"
+            android:textColor="@color/textHeadline"
             android:textSize="13sp"
             android:gravity="center"
             android:layout_marginBottom="30dp"
@@ -151,5 +151,4 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
     />
-
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

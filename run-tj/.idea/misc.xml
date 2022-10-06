@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable/button_bg.xml" value="0.2255" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable/edittext_bg.xml" value="0.2255" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.2255" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2255" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.2255" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_login.xml" value="0.22644927536231885" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_register.xml" value="0.22644927536231885" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_splash.xml" value="0.22644927536231885" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/button_bg.xml" value="0.22644927536231885" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/content_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/edittext_bg.xml" value="0.22644927536231885" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/fragment_first.xml" value="0.22826086956521738" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/fragment_second.xml" value="0.22826086956521738" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/menu/menu_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/xml/button_bg.xml" value="0.22644927536231885" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/xml/motion_scene_splash.xml" value="0.22644927536231885" />
+      </map>
+    </option>
+  </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
