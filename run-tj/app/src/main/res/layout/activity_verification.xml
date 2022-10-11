@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/motion_scene_splash"
+        tools:context=".MainActivity"
+        tools:ignore="MissingConstraints">
+
+    <ImageView
+            android:id="@+id/imgView_logo"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="80dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+            android:id="@+id/imgView_logo_rays"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="80dp"
+            android:rotation="0"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+            android:id="@+id/imgView_cloudLeft"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/cloud"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/lightGrey" />
+
+    <ImageView
+            android:id="@+id/imgView_cloudRight"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/cloud"
+            app:tint="@color/lightGrey"
+    />
+
+    <LinearLayout
+
+            android:id="@+id/linlay_inputs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgView_cloudRight">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Welcome Back"
+                android:textColor="@color/textHeadline"
+                android:textSize="20sp" />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="手机号码验证"
+                android:textColor="@color/textDescription"
+                android:textSize="14sp" />
+
+        <EditText
+                android:id="@+id/verify_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/edittext_bg"
+                android:drawableStart="@drawable/custom_email_icon"
+                android:drawablePadding="16dp"
+                android:hint="Phone"
+                android:inputType="textEmailAddress"
+                android:padding="16dp"
+                android:textSize="14sp"/>
+
+        <EditText
+                android:id="@+id/verify_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittext_bg"
+                android:drawableStart="@drawable/custom_lock_icon"
+                android:drawableEnd="@drawable/ic_baseline_visibility_24"
+                android:drawableRight="@drawable/ic_baseline_visibility_24"
+                android:drawablePadding="16dp"
+                android:hint="Code"
+                android:inputType="textPassword"
+                android:padding="16dp"
+                android:textSize="14sp"/>
+        <Button
+                android:id="@+id/verify_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_bg"
+                android:text="verify"
+                android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
