@@ -1,16 +1,13 @@
-package com.example.myapplication;
+package activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityVerificationBinding;
 
 public class verification extends AppCompatActivity {

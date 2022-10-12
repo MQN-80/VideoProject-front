@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import activity.UserCenterActivity;
+import activity.verification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import androidx.navigation.ui.AppBarConfiguration;
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.google.gson.Gson;
 import net.asyncCall;
+import okhttp3.Response;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,7 +76,14 @@ public class MainActivity extends AppCompatActivity {
                             Map<String, String> params=new HashMap<String, String>();
                             params.put("phone",info.getText().toString());
                             params.put("password",password.getText().toString());
-                            login.postAsync("/Login",params);
+                            Response mid=login.postAsync("/Login",params);
+                            Map<String,String> map=new HashMap<>();
+                            Gson gson=new Gson();
+                            //map=gson.fromJson(mid.body().toString());
+                            Intent intent=new Intent();
+                            intent.setClass(MainActivity.this, UserCenterActivity.class);
+                            startActivity(intent);
+
                         }
                     }).start();
 
