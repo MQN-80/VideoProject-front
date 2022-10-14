@@ -6,9 +6,9 @@
             app:startDestination="@+id/navigation_center">
 
     <fragment
-            android:id="@+id/navigation_center"
-            android:name="Fragment.centerFragment"
-            tools:layout="@layout/fragment_center" />
+            android:id="@+id/navigation_data"
+            android:name="Fragment.dataFragment"
+            tools:layout="@layout/fragment_data" />
 
     <fragment
             android:id="@+id/navigation_run"
@@ -21,7 +21,7 @@
             tools:layout="@layout/fragment_club" />
 
     <fragment
-            android:id="@+id/navigation_data"
-            android:name="Fragment.dataFragment"
-            tools:layout="@layout/fragment_data" />
+            android:id="@+id/navigation_center"
+            android:name="Fragment.centerFragment"
+            tools:layout="@layout/fragment_center" />
 </navigation>

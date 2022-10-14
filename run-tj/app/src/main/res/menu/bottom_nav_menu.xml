@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-            android:id="@+id/navigation_center"
-            android:icon="@drawable/center"
-            android:title="我的" />
+            android:id="@+id/navigation_data"
+            android:icon="@drawable/data"
+            android:title="数据" />
 
     <item
             android:id="@+id/navigation_run"
@@ -17,8 +17,9 @@
             android:title="社团" />
 
     <item
-            android:id="@+id/navigation_data"
-            android:icon="@drawable/data"
-            android:title="数据" />
+            android:id="@+id/navigation_center"
+            android:icon="@drawable/center"
+            android:title="我的" />
+
 </menu>
 

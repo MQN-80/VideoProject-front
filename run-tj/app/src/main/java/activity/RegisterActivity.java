@@ -14,7 +14,6 @@ import com.example.myapplication.databinding.ActivityRegisterBinding;
 public class RegisterActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityRegisterBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
