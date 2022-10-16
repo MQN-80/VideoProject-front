@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import Utils.PoseRecognition;
 import activity.UserCenterActivity;
 import activity.verification;
 import android.content.Intent;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import androidx.navigation.ui.AppBarConfiguration;
-import com.example.myapplication.databinding.ActivityMainBinding;
 import com.google.gson.Gson;
 import net.asyncCall;
 import okhttp3.Response;
@@ -25,7 +25,6 @@ import static android.content.ContentValues.TAG;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 a.getAsync("user",a1);
             }
         }).start();
-
+        PoseRecognition mid=new PoseRecognition();
+        mid.load_model(this);
         setContentView(R.layout.activity_main);
 
         //监听跳转按钮
