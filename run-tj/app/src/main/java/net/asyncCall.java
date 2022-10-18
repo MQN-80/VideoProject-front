@@ -53,7 +53,7 @@ public class asyncCall implements netCall {
         Call call = client.newCall(request);
         try {
             Response response = call.execute();
-            System.out.println(response.body().string());
+            //System.out.println(response.body().toString());
             return  response;
             //Log.d(TAG, "body="+response.body().string());
         }catch(IOException e){
@@ -106,7 +106,7 @@ public class asyncCall implements netCall {
         Call call = client.newCall(request);
         try {
             Response response = call.execute();
-            Log.i(TAG, "body="+response.body().string());
+            //Log.i(TAG, "body="+response.body().string());
             return response;
         }catch(IOException e){
             e.printStackTrace();
@@ -125,7 +125,7 @@ public class asyncCall implements netCall {
         Call call = client.newCall(request);
         try {
             Response response = call.execute();
-            Log.i(TAG, "body="+response.body().string());
+           // Log.i(TAG, "body="+response.body().string());
             return response;
         }catch(IOException e){
             e.printStackTrace();
