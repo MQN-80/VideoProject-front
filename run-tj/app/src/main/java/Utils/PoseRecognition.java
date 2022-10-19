@@ -10,14 +10,14 @@ import java.nio.ByteBuffer;
 
 public class PoseRecognition {
     public void load_model(Context context) {
-        /**
-        try {
+
+       /* try {
             LiteModelMovenetSingleposeLightningTfliteFloat164 model = LiteModelMovenetSingleposeLightningTfliteFloat164.newInstance(context);
 
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 192, 192, 3}, DataType.UINT8);
-            int [][][][]mid=new int[1][192][192][3];
-            ByteBuffer byteBuffer=ByteBuffer.wrap(mid.toString().getBytes());
+            float [][][]mid=new float[192][192][3];
+            ByteBuffer byteBuffer=ByteBuffer.wrap(mid);
             inputFeature0.loadBuffer(byteBuffer);
             // Runs model inference and gets result.
             LiteModelMovenetSingleposeLightningTfliteFloat164.Outputs outputs = model.process(inputFeature0);
@@ -27,7 +27,7 @@ public class PoseRecognition {
             model.close();
         } catch (IOException e) {
             // TODO Handle the exception
-        }
-         **/
+        }*/
+
     }
 }
