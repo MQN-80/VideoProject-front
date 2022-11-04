@@ -1,5 +1,6 @@
 package activity;
 
+import Service.MessageService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -38,6 +39,8 @@ public class UserCenterActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+
     }
+
 
 }

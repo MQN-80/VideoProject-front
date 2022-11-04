@@ -1,8 +1,10 @@
 package com.example.myapplication;
 
+import Service.MessageService;
 import Utils.PoseRecognition;
 import activity.UserCenterActivity;
 import activity.verification;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,12 +18,18 @@ import bean.LoginEntity;
 import com.google.gson.Gson;
 import net.asyncCall;
 import okhttp3.Response;
+import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.handshake.ServerHandshake;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.net.URI;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -63,7 +71,13 @@ public class MainActivity extends AppCompatActivity {
                 login();
             }
         });
+        //启动聊天室监听
+        Intent intent=new Intent(MainActivity.this, MessageService.class);
+        System.out.println("+++++++++++++");
+        startService(intent);
     }
+
+
     public void login(){
         new Thread(new Runnable() {
             @Override
