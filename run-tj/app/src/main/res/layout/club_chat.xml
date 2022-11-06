@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#fffafa"
+            android:weightSum="100">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"
+                android:src="@drawable/icon2"
+                android:id="@+id/ClubIcon">
+        </ImageView>
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="70"
+                android:layout_height="60dp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:text="无法读取社团名"
+                    android:singleLine="true"
+                    android:textSize="20sp"
+                    android:layout_width="280dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/ClubName"
+                    android:textStyle="bold">
+            </TextView>
+
+            <TextView
+                    android:text="暂无人员发言"
+                    android:singleLine="true"
+                    android:textSize="15sp"
+                    android:layout_width="280dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/ClubDesc">
+            </TextView>
+        </LinearLayout>
+
+        <TextView
+                android:layout_gravity="center"
+                android:text="24：01"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:textSize="15sp"
+                android:layout_width="0dp"
+                android:layout_weight="15"
+                android:layout_height="30dp"
+                android:id="@+id/ClubTime">
+        </TextView>
+</LinearLayout>
