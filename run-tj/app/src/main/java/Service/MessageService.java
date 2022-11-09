@@ -12,6 +12,8 @@ import android.util.Log;
 import android.widget.TextView;
 import com.example.myapplication.R;
 import net.JWebSocket;
+import net.asyncCall;
+import okhttp3.Response;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 import org.json.JSONException;
@@ -26,7 +28,7 @@ import java.util.Date;
 import static android.content.ContentValues.TAG;
 
 public class MessageService extends Service {
-    private JWebSocket webSocketClient;
+    private static WebSocketClient webSocketClient;
 
     private static URI serverURI = URI.create("ws://10.0.2.2:9688");   //websocket端口地址
     public MessageService() {
@@ -49,9 +51,8 @@ public class MessageService extends Service {
     public void onCreate() {
         super.onCreate();
         DBHelper dbHelper = new DBHelper(this, "test.db", null, 1);
-        System.out.println("开始");
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        JWebSocket webSocketClient=new JWebSocket(serverURI) {
+        webSocketClient=new WebSocketClient(serverURI) {
             @Override
             public void onOpen(ServerHandshake handshakedata) {
                 System.out.println("开始监听");
@@ -77,7 +78,6 @@ public class MessageService extends Service {
                 }
                 //进行插入
                 db.insert("group_message",null ,values);
-
             }
 
             @Override
@@ -93,15 +93,26 @@ public class MessageService extends Service {
             }
         };   //连接服务器ip
         webSocketClient.connect();
-       // webSocketClient.send("dasda");
+        try {
+            sendMessage("dadasd");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
      *
      * 发送信息记得严格按对应json形式封装好,发送时用新线程发
      */
-    public void sendMessage(String messageBody){
-        webSocketClient.send(messageBody);
+    public void sendMessage(String messageBody) throws InterruptedException {
+        Thread.sleep(1000*5);
+        Thread th=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                webSocketClient.send(messageBody);
+            }
+        });
+        th.start();
     }
 
 
