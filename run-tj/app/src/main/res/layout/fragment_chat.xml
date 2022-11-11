@@ -44,7 +44,7 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:id="@+id/chat_UserName"
+                    android:id="@+id/chat_ClubName"
                     android:textStyle="bold">
             </TextView>
 
@@ -56,7 +56,7 @@
                     android:textSize="15sp"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:id="@+id/chat_UserState">
+                        android:id="@+id/chat_ClubState">
             </TextView>
             <TextView
                     android:layout_width="match_parent"
@@ -78,12 +78,64 @@
                     android:textSize="30sp"/>
         </LinearLayout>
     </LinearLayout>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="70">
+    <LinearLayout
+            android:id="@+id/chat_ChatBox"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            />
+    </ScrollView>
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="70"/>
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="20"/>
+            android:layout_weight="20"
+            android:id="@+id/chat_TextBox"
+            android:weightSum="100">
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="80"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="100">
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="10"
+                    android:layout_height="0dp"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="80"
+                    android:layout_height="0dp"
+                    android:weightSum="100">
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="match_parent"/>
+                <EditText
+                        android:layout_width="0dp"
+                        android:layout_weight="94"
+                        android:text="输入文字"
+                        android:layout_marginLeft="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/box_chat"/>
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"/>
+            </LinearLayout>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="10"/>
+        </LinearLayout>
+        <Button
+                android:text="发送"
+                android:textSize="20sp"
+                android:layout_width="0dp"
+                android:layout_weight="20"
+                android:layout_height="50dp"/>
+    </LinearLayout>
 </LinearLayout>

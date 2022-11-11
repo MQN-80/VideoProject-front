@@ -62,18 +62,20 @@
                 android:layout_weight="1"/>
     </LinearLayout>
 
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="600dp"
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_marginTop="20dp"
-            android:id="@+id/chatFrame"
             android:layout_below="@+id/TopLayer">
-
-        <bean.ChatLayout
-                android:id="@+id/chatLayout"
+        <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"/>
-    </LinearLayout>
-
+                android:layout_height="wrap_content"
+                android:id="@+id/chatFrame"
+                android:orientation="vertical">
+            <bean.ChatLayout
+                    android:id="@+id/chatLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"/>
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
