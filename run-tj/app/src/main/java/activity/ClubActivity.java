@@ -1,5 +1,6 @@
 package activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -10,7 +11,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import bean.ChatBox_left;
+import bean.ChatBox_right;
 import bean.ChatLayout;
 import bean.HeadFrameLayout;
 import com.example.myapplication.R;
@@ -18,15 +23,17 @@ import com.example.myapplication.R;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.security.KeyStore;
+import java.util.*;
 
 public class ClubActivity extends AppCompatActivity {
     private ChatLayout chatLayout;
     private HeadFrameLayout headFrameLayout;
     String imageUrl = "http://hiphotos.baidu.com/baidu/pic/item/7d8aebfebf3f9e125c6008d8.jpg";
 
-    String []arr={"金逸太强了小组","软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群"};
+    String []arr={"金逸太强了小组","软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群",
+            "金逸太强了小组","软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群","金逸太强了小组",
+            "软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群"};
 
     public Bitmap returnBitMap(String url) {
         Bitmap bmp = null;
@@ -60,6 +67,13 @@ public class ClubActivity extends AppCompatActivity {
         };
 
     };
+
+    /*
+    public void ToClubChat(View v){
+        Intent intent=new Intent(this, ClubChatActivity.class);
+        startActivity(intent);
+    }
+    */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,13 +102,21 @@ public class ClubActivity extends AppCompatActivity {
         headFrameLayout.setUser_State("正在观看 《真夏夜之梦》");
 
         LayoutInflater layoutInflater = LayoutInflater.from(this);
-        for(Integer i=1;i<6;i++) {
+        for(Integer i=1;i<16;i++) {
+            String name=arr[i-1];
             Log.i("ClubActivity","循环执行"+i);
             ChatLayout chatLayout1 = (ChatLayout) layoutInflater.inflate(R.layout.club_chat_real, null, false);
             chatLayout1.setClub_Name(arr[i-1]);
             chatLayout1.setClub_Chat("2051914 金逸 ：我来全写完了");
+            chatLayout1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ClubActivity.this, ClubChatActivity.class);
+                    intent.putExtra("ClubData",name);
+                    startActivity(intent);
+                }
+            });
             Frame.addView(chatLayout1);
         }
     }
-
 }
