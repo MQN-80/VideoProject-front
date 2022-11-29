@@ -2,7 +2,6 @@ package activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -12,17 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import bean.*;
 import com.example.myapplication.R;
-
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.security.KeyStore;
-import java.util.*;
 
 public class ClubActivity extends AppCompatActivity implements View.OnClickListener{
     private ChatLayout chatLayout;
@@ -32,25 +23,6 @@ public class ClubActivity extends AppCompatActivity implements View.OnClickListe
     String []arr={"金逸太强了小组","软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群",
             "金逸太强了小组","软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群","金逸太强了小组",
             "软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群"};
-
-    public Bitmap returnBitMap(String url) {
-        Bitmap bmp = null;
-        try {
-            URL MyUrl = new URL(url);
-            // 获得连接
-            HttpURLConnection conn = (HttpURLConnection) MyUrl.openConnection();
-            conn.setConnectTimeout(6000);//设置超时
-            conn.setDoInput(true);
-            conn.setUseCaches(false);//不缓存
-            conn.connect();
-            InputStream is = conn.getInputStream();//获得图片的数据流
-            bmp = BitmapFactory.decodeStream(is);//读取图像数据
-            is.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return bmp;
-    }
 
     final Handler handle =new Handler(Looper.getMainLooper()){
         @Override
@@ -140,7 +112,7 @@ public class ClubActivity extends AppCompatActivity implements View.OnClickListe
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Bitmap bitmap=returnBitMap(imageUrl);
+                Bitmap bitmap=Utils.BitMap.returnBitMap(imageUrl);
                 Message msg = new Message();
                 msg.what = 0;
                 msg.obj = bitmap;
