@@ -93,11 +93,7 @@ public class MessageService extends Service {
             }
         };   //连接服务器ip
         webSocketClient.connect();
-        try {
-            sendMessage("dadasd");
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 
     /**
@@ -105,7 +101,6 @@ public class MessageService extends Service {
      * 发送信息记得严格按对应json形式封装好,发送时用新线程发
      */
     public void sendMessage(String messageBody) throws InterruptedException {
-        Thread.sleep(1000*5);
         Thread th=new Thread(new Runnable() {
             @Override
             public void run() {

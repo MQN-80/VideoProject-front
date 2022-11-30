@@ -19,6 +19,12 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.MyApplication"
             tools:targetApi="31">
+        <activity
+                android:name="activity.RunPlanActivity"
+                android:exported="false"
+                android:label="@string/title_activity_run_plan"
+                android:theme="@style/Theme.MyApplication.NoActionBar"/>
+
         <service
                 android:name="Service.MessageService"
                 android:enabled="true"
@@ -45,10 +51,11 @@
                 android:exported="true"
                 android:label="@string/title_activity_club"
                 android:theme="@style/Theme.MyApplication.NoActionBar">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
                 android:name=".MainActivity"
