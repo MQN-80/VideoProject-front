@@ -34,7 +34,7 @@ public class dataFragment extends Fragment {
         ImageView img3=(ImageView)getActivity().findViewById(R.id.imageView4);
         ImageView img4=(ImageView)getActivity().findViewById(R.id.imageView5);
         ImageView img5=(ImageView)getActivity().findViewById(R.id.imageView6);
-        jump_page(img3,MainActivity.class);
+        jump_page(img3,MainActivity.class);   //跑步计划安排
         jump_page(img4,MainActivity.class);
         jump_page(img5,MainActivity.class);
         jump_page(img1,MainActivity.class);
