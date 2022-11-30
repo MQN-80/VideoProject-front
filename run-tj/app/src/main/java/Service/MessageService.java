@@ -93,7 +93,6 @@ public class MessageService extends Service {
             }
         };   //连接服务器ip
         webSocketClient.connect();
-
     }
 
     /**

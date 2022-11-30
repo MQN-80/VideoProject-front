@@ -24,7 +24,7 @@
                     android:text="无法读取社团名"
                     android:singleLine="true"
                     android:textSize="20sp"
-                    android:layout_width="280dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:id="@+id/ClubName"
                     android:textStyle="bold">
@@ -34,7 +34,7 @@
                     android:text="暂无人员发言"
                     android:singleLine="true"
                     android:textSize="15sp"
-                    android:layout_width="280dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:id="@+id/ClubDesc">
             </TextView>

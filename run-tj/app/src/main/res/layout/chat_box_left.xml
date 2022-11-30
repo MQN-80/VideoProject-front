@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#fffafa"
+        android:weightSum="100">
+
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"
+            android:src="@drawable/icon2"
+            android:id="@+id/chat_HeadIcon_Left">
+    </ImageView>
+
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="85"
+            android:layout_height="60dp"
+            android:weightSum="100"
+            android:orientation="vertical">
+        <TextView
+                android:text="你是？"
+                android:singleLine="true"
+                android:textSize="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="30"
+                android:id="@+id/chat_UserName_Left"
+                android:textStyle="bold">
+        </TextView>
+
+        <TextView
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:text="你说了啥？妹听清"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="70"
+                android:id="@+id/chat_UserBox_Left"
+                android:background="@drawable/box_chat"
+                android:textStyle="bold">
+        </TextView>
+    </LinearLayout>
+</LinearLayout>
