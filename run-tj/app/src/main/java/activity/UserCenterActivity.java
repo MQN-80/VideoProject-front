@@ -36,10 +36,11 @@ public class UserCenterActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
         // 启动
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
+        //这一行有错，不知道有啥用
+        NavigationUI.setupActionBarWithNavController(this,navController, appBarConfiguration);
+
         NavigationUI.setupWithNavController(navView, navController);
-
-
     }
 
 
