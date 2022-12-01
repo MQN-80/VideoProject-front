@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import Service.MessageService;
 import Utils.PoseRecognition;
+import activity.RegisterActivity;
 import activity.UserCenterActivity;
 import activity.verification;
 import android.content.ContentValues;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent=new Intent();
-                intent.setClass(MainActivity.this, verification.class);
+                intent.setClass(MainActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });

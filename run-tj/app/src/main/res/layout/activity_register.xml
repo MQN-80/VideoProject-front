@@ -54,7 +54,6 @@
     />
 
     <LinearLayout
-
             android:id="@+id/linlay_inputs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,7 +67,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgView_cloudRight">
-
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,29 +74,43 @@
                 android:text="Welcome Back"
                 android:textColor="@color/textHeadline"
                 android:textSize="20sp" />
-
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="Sign in to continue"
+                android:text="进行手机号验证"
                 android:textColor="@color/textDescription"
-                android:textSize="14sp" />
-
-        <EditText
+                android:textSize="20sp"/>
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/edittext_bg"
-                android:drawableStart="@drawable/ic_baseline_email_24"
-                android:drawableLeft="@drawable/ic_baseline_email_24"
-                android:drawablePadding="16dp"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:padding="16dp"
-                android:textSize="14sp" />
+                android:orientation="horizontal"
+        >
+            <EditText
+                    android:id="@+id/phone_verify"
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/edittext_bg"
+                    android:drawableStart="@drawable/ic_baseline_email_24"
+                    android:drawableLeft="@drawable/ic_baseline_email_24"
+                    android:drawablePadding="16dp"
+                    android:hint="输入手机号"
+                    android:inputType="textEmailAddress"
+                    android:padding="16dp"
+                    android:textSize="14sp" />
+            <Button
+                    android:id="@+id/verify_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/button_bg"
+                    android:text="发送验证码"
+                    android:textColor="@color/white" />
 
+        </LinearLayout>
         <EditText
+                android:id="@+id/verify_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -109,12 +121,13 @@
                 android:drawableRight="@drawable/ic_baseline_visibility_24"
 
                 android:drawablePadding="16dp"
-                android:hint="Password"
+                android:hint="输入验证码"
                 android:inputType="textPassword"
                 android:padding="16dp"
                 android:textSize="14sp" />
 
         <Button
+                android:id="@+id/verify_ok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"

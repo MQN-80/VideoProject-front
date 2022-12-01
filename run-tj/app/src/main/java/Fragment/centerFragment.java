@@ -1,5 +1,8 @@
 package Fragment;
 
+import activity.CenterActivity;
+import activity.RunRecordActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,8 +15,7 @@ import com.example.myapplication.R;
  * Use the {@link centerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class centerFragment extends Fragment {
-
+public class centerFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
