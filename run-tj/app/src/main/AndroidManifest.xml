@@ -19,17 +19,6 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.MyApplication"
             tools:targetApi="31">
-        <activity
-                android:name="activity.realRegisterActivity"
-                android:exported="false"
-                android:label="@string/title_activity_real_register"
-                android:theme="@style/Theme.MyApplication.NoActionBar"/>
-        <activity
-                android:name="activity.RunPlanActivity"
-                android:exported="false"
-                android:label="@string/title_activity_run_plan"
-                android:theme="@style/Theme.MyApplication.NoActionBar"/>
-
         <service
                 android:name="Service.MessageService"
                 android:enabled="true"
@@ -38,9 +27,15 @@
 
         <activity
                 android:name="activity.UserCenterActivity"
-                android:exported="false"
+                android:exported="true"
                 android:label="@string/title_activity_user_center"
-                android:theme="@style/Theme.MyApplication"/>
+                android:theme="@style/Theme.MyApplication">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
         <activity
                 android:name="activity.verification"
                 android:exported="false"
@@ -51,17 +46,6 @@
                 android:exported="false"
                 android:label="@string/title_activity_register"
                 android:theme="@style/Theme.MyApplication.NoActionBar"/>
-        <activity
-                android:name="activity.ClubActivity"
-                android:exported="true"
-                android:label="@string/title_activity_clubchat"
-                android:theme="@style/Theme.MyApplication.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
         <activity
                 android:name="activity.ClubChatActivity"
                 android:exported="false"
@@ -74,24 +58,15 @@
                 android:theme="@style/Theme.MyApplication.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
-                android:name="activity.CenterActivity"
+                android:name="activity.ClubIndexActivity"
                 android:exported="true"
-                android:label="@string/center_activity"
-                android:theme="@style/Theme.MyApplication.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-
-        <activity android:name="activity.RunRecordActivity"
-                  android:exported="true">
-        </activity>
+                android:label="@string/title_activity_club_index"
+                android:theme="@style/Theme.MyApplication.NoActionBar"/>
     </application>
 
 </manifest>
