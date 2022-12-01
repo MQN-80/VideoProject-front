@@ -18,6 +18,7 @@
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2255" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.2255" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/a.xml" value="0.20735356990166737" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_login.xml" value="0.22644927536231885" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_register.xml" value="0.22644927536231885" />
@@ -27,15 +28,18 @@
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_verification.xml" value="0.22644927536231885" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/button_bg.xml" value="0.22644927536231885" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/chat_box.xml" value="0.18802083333333333" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/chat_box_right_real.xml" value="0.14365113296280463" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/club_chat.xml" value="0.18802083333333333" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/club_chat_real.xml" value="0.18802083333333333" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/club_headframe.xml" value="0.18802083333333333" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/club_list.xml" value="0.20820863616930313" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/content_main.xml" value="0.22826086956521738" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/content_verification.xml" value="0.22644927536231885" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/edittext_bg.xml" value="0.22644927536231885" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/fragment_center.xml" value="0.176" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/fragment_chat.xml" value="0.18802083333333333" />
-        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/fragment_club.xml" value="0.264" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/fragment_club.xml" value="0.16140350877192983" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/fragment_club_index.xml" value="0.1526293287729799" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/fragment_data.xml" value="0.264" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/fragment_first.xml" value="0.22826086956521738" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/fragment_run.xml" value="0.1" />

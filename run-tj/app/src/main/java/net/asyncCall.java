@@ -23,10 +23,8 @@ public class asyncCall implements netCall {
         this.url="http://10.0.2.2:8081";
         client = new OkHttpClient();
     }
-
     //同步get请求
     public Response getAsync(String url, Map<String, String> headerParams, ArrayList<String> bodyParams) {
-
         String urlNew=this.url+url;
         urlNew += getBodyParams(bodyParams);
         Headers headers = setHeaderParams(headerParams);
@@ -41,7 +39,6 @@ public class asyncCall implements netCall {
             e.printStackTrace();
         }
         return null;
-
     }
 
     public Response getAsync(String url, ArrayList<String> bodyParams) {
@@ -52,9 +49,8 @@ public class asyncCall implements netCall {
         Request request = new Request.Builder().url(urlNew).get().build();
         Call call = client.newCall(request);
         try {
-            Response response = call.execute();
             //System.out.println(response.body().toString());
-            return  response;
+            return call.execute();
             //Log.d(TAG, "body="+response.body().string());
         }catch(IOException e){
             e.printStackTrace();
