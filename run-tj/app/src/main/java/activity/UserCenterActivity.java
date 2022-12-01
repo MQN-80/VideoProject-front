@@ -37,7 +37,6 @@ public class UserCenterActivity extends AppCompatActivity {
 
         // 启动
 
-        //这一行有错，不知道有啥用
         NavigationUI.setupActionBarWithNavController(this,navController, appBarConfiguration);
 
         NavigationUI.setupWithNavController(navView, navController);
