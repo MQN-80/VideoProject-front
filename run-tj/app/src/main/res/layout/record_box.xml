@@ -8,11 +8,13 @@
             android:layout_width="100dp"
             android:layout_height="60dp"
             android:orientation="vertical"
-            android:background="@drawable/record_bg">
+            android:background="@drawable/record_bg"
+            android:weightSum="100">
 
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp">
+                android:layout_height="0dp"
+                android:layout_weight="50">
             <TextView
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
@@ -24,7 +26,8 @@
 
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp">
+                android:layout_height="0dp"
+                android:layout_weight="50">
 
             <TextView
                     android:layout_width="100dp"
@@ -35,38 +38,44 @@
             </TextView>
         </LinearLayout>
 
-    </LinearLayout>
+    </LinearLayout> <!--end of 第一个框-->
 
     <LinearLayout
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:orientation="vertical"
-            android:background="@drawable/record_bg">
+            android:background="@drawable/record_bg"
+            android:weightSum="100">
         <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="0dp"
                 android:text="这是第三行"
                 android:gravity="center"
-                android:id="@+id/distance">
+                android:id="@+id/distance"
+                android:layout_weight="66">
         </TextView>
 
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="0dp"
+                android:layout_weight="34"
+                android:weightSum="100">
             <TextView
-                    android:layout_width="125dp"
-                    android:layout_height="20dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:text="这是第四行"
                     android:gravity="center"
-                    android:id="@+id/run_time">
+                    android:id="@+id/run_time"
+                    android:layout_weight="50">
             </TextView>
 
             <TextView
-                    android:layout_width="125dp"
-                    android:layout_height="20dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:text="这是第五行"
                     android:gravity="center"
-                    android:id="@+id/pace">
+                    android:id="@+id/pace"
+                    android:layout_weight="50">
             </TextView>
         </LinearLayout>
     </LinearLayout>
