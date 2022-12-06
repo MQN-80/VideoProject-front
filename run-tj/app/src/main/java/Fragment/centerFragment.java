@@ -2,6 +2,7 @@ package Fragment;
 
 import activity.CenterActivity;
 import activity.RunRecordActivity;
+import activity.UserInfoActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -83,6 +84,7 @@ public class centerFragment extends Fragment implements View.OnClickListener{
         TextView runToRecord = CenterView.findViewById(R.id.jumpToRunRecord);
         runToRecord.setOnClickListener(this);
         // Inflate the layout for this fragment
+        avatar.setOnClickListener(this);
         return CenterView;
     }
 
@@ -94,6 +96,10 @@ public class centerFragment extends Fragment implements View.OnClickListener{
                 Intent intent = new Intent(getActivity(), RunRecordActivity.class);
                 startActivity(intent);
                 break;
+            }
+            case R.id.imageView7:{
+                Intent intent = new Intent(getActivity(), UserInfoActivity.class);
+                startActivity(intent);
             }
         }
     }
