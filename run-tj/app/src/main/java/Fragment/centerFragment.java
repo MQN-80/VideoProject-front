@@ -56,7 +56,7 @@ public class centerFragment extends Fragment implements View.OnClickListener{
         // 加载静态页面
         avatar = CenterView.findViewById(R.id.imageView7);
         // 在这个线程中设置头像
-        new Thread(new Runnable() {
+        /*new Thread(new Runnable() {
             @Override
             public void run() {
                 asyncCall asyncCall = new asyncCall();
@@ -79,6 +79,7 @@ public class centerFragment extends Fragment implements View.OnClickListener{
                 }
             }
         }).start();
+         */
 
         // 设置跳转按钮
         TextView runToRecord = CenterView.findViewById(R.id.jumpToRunRecord);

@@ -9,7 +9,7 @@
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:id="@+id/CreateClub_headFrame"
             android:background="#4169e1"
             android:orientation="vertical">

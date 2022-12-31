@@ -120,6 +120,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/Club_headFrame"
+            android:id="@+id/club_index_member"
             android:background="@color/white"
             android:orientation="horizontal"
             android:weightSum="100">
@@ -146,5 +147,23 @@
                 android:text=">"
                 android:textSize="25dp"
                 android:background="@color/white"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/club_index_member"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="vertical">
+    <Button
+            android:layout_gravity="center"
+            android:text="加入社团"
+            android:textSize="20sp"
+            android:id="@+id/joinClub"
+            android:textColor="@color/white"
+            android:layout_width="200dp"
+            android:background="@drawable/button_chat"
+            android:layout_height="70dp">
+    </Button>
     </LinearLayout>
 </RelativeLayout>
