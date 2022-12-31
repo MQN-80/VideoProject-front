@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ffffff"
-                android:layout_weight="100">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ffffff"
+              android:layout_weight="100">
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -38,26 +39,14 @@
                     android:layout_height="10dp">
             </TextView>
             <TextView
-                    android:text="无法读取社团名称"
+                    android:text="社团搜索页面"
                     android:textColor="@color/white"
                     android:gravity="center"
                     android:singleLine="true"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:id="@+id/chat_ClubName"
                     android:textStyle="bold">
-            </TextView>
-
-            <TextView
-                    android:gravity="center"
-                    android:text="没有人在线"
-                    android:textColor="@color/white"
-                    android:singleLine="true"
-                    android:textSize="15sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:id="@+id/chat_ClubState">
             </TextView>
             <TextView
                     android:layout_width="match_parent"
@@ -70,47 +59,13 @@
                 android:layout_weight="10"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-            <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:background="#4169e1"
-                    android:text="="
-                    android:textColor="@color/white"
-                    android:textSize="30sp"/>
         </LinearLayout>
     </LinearLayout>
-    <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="80"
-            android:fillViewport="true">
     <LinearLayout
-            android:id="@+id/chat_ChatBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="90"
             android:orientation="vertical"
-            />
-    </ScrollView>
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:id="@+id/chat_TextBox"
-            android:weightSum="100">
-                <EditText
-                        android:layout_width="0dp"
-                        android:layout_weight="80"
-                        android:paddingLeft="5dp"
-                        android:hint="输入文字"
-                        android:layout_marginLeft="5dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/box_chat"/>
-                <Button
-                        android:text="发送"
-                        android:textSize="20sp"
-                        android:layout_width="0dp"
-                        android:layout_weight="20"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"/>
+            android:id="@+id/ClubSearch_Box">
     </LinearLayout>
 </LinearLayout>

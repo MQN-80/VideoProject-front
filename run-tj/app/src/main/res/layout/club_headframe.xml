@@ -21,9 +21,10 @@
         <TextView
                 android:text="无法读取用户名称"
                 android:textColor="@color/white"
+                android:layout_marginLeft="10dp"
                 android:singleLine="true"
                 android:textSize="20sp"
-                android:layout_width="280dp"
+                android:layout_width="270dp"
                 android:layout_height="30dp"
                 android:id="@+id/UserName"
                 android:textStyle="bold">
@@ -32,9 +33,10 @@
         <TextView
                 android:text="正在玩 原神"
                 android:textColor="@color/white"
+                android:layout_marginLeft="30dp"
                 android:singleLine="true"
                 android:textSize="15sp"
-                android:layout_width="280dp"
+                android:layout_width="250dp"
                 android:layout_height="20dp"
                 android:id="@+id/UserState">
         </TextView>
@@ -51,7 +53,7 @@
     <Button
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/run"
+            android:background="@drawable/new_club"
             android:id="@+id/HeadFrameButton"
             ></Button>
     </LinearLayout>

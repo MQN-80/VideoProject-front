@@ -42,6 +42,15 @@
                 android:label="@string/title_activity_verification"
                 android:theme="@style/Theme.MyApplication.NoActionBar"/>
         <activity
+                android:name="activity.CreateClubActivity"
+                android:exported="true"
+                android:theme="@style/Theme.MyApplication.NoActionBar"/>
+        <activity
+                android:name="activity.ClubSearchActivity"
+                android:exported="true"
+                android:label="@string/title_activity_verification"
+                android:theme="@style/Theme.MyApplication.NoActionBar"/>
+        <activity
                 android:name="activity.RegisterActivity"
                 android:exported="false"
                 android:label="@string/title_activity_register"

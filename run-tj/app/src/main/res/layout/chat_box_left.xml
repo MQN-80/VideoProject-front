@@ -41,7 +41,8 @@
                 android:layout_weight="70"
                 android:id="@+id/chat_UserBox_Left"
                 android:background="@drawable/box_chat"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:layout_marginRight="10dp">
         </TextView>
     </LinearLayout>
 </LinearLayout>

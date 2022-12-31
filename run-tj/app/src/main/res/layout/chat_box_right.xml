@@ -31,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="70"
+                android:layout_marginLeft="10dp"
                 android:gravity="right"
                 android:id="@+id/chat_UserBox_Right"
                 android:background="@drawable/box_chat"

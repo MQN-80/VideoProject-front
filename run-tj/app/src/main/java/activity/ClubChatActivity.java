@@ -22,7 +22,7 @@ public class ClubChatActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_chat);
+        setContentView(R.layout.activity_chat);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         LinearLayout Frame = findViewById(R.id.chat_ChatBox);
         Button button=findViewById(R.id.Button_returnClubPage);

@@ -8,11 +8,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
 
-public class ClubIndexActivity extends AppCompatActivity {
+public class ClubIndexActivity extends AppCompatActivity //社团首页
+{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_club_index);
+        setContentView(R.layout.activity_club_index);
         Intent intent=this.getIntent();
         String name=intent.getStringExtra("ClubData");
         TextView textView=findViewById(R.id.Club_Name);
