@@ -42,6 +42,7 @@
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/a.xml" value="0.20735356990166737" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_login.xml" value="0.22644927536231885" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_real_register.xml" value="0.18469431380932022" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_register.xml" value="0.22644927536231885" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_run_plan.xml" value="0.2" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/activity_splash.xml" value="0.22644927536231885" />
@@ -54,6 +55,9 @@
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/club_chat_real.xml" value="0.18802083333333333" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/club_headframe.xml" value="0.18802083333333333" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/club_list.xml" value="0.20820863616930313" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/club_list_real.xml" value="0.18469431380932022" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/community_box.xml" value="0.18469431380932022" />
+        <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/community_box_real.xml" value="0.18469431380932022" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/content_main.xml" value="0.22826086956521738" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/content_verification.xml" value="0.22644927536231885" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/layout/edittext_bg.xml" value="0.22644927536231885" />

@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class ClubChatActivity extends AppCompatActivity {
-
+    public Map<String,String> Arr=new HashMap<>();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +36,6 @@ public class ClubChatActivity extends AppCompatActivity {
         String name=intent.getStringExtra("ClubData");
         TextView textView=findViewById(R.id.chat_ClubName);
         textView.setText(name);
-        Map<String,String> Arr=new HashMap<>();
         Arr.put("金逸 21:01:08","我来全写了");
         Arr.put("金逸 21:01:57","OK我写完了");
         Arr.put("展驰 21:02:23","写写你的");
@@ -70,4 +69,5 @@ public class ClubChatActivity extends AppCompatActivity {
             }
         }
     }
+
 }

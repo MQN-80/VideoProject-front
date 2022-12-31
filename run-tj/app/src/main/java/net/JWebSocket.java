@@ -20,7 +20,6 @@ public class JWebSocket extends WebSocketClient {
     @Override
     public void onMessage(String message) {
         Log.e("JWebSocketClient", "onMessage()");
-
     }
 
     @Override
