@@ -16,4 +16,8 @@ public interface netCall {
     public Response postAsync(String url, Map<String, String> headerParams, Map<String, String> bodyParams);
     public Response postAsync(String url, Map<String, String> bodyParams);
 
+    public Response putAsync(String url, Map<String, String> bodyParams);
+    public Response deleteAsync(String url, Map<String, String> bodyParams);
+
+
 }
