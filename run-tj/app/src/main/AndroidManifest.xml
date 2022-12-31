@@ -52,6 +52,10 @@
                 android:label="@string/title_activity_register"
                 android:theme="@style/Theme.MyApplication.NoActionBar"/>
         <activity
+                android:name="activity.RunRecordActivity"
+                android:exported="true"
+                android:theme="@style/Theme.MyApplication.NoActionBar"/>
+        <activity
                 android:name=".MainActivity"
                 android:exported="true"
                 android:label="@string/app_name"
@@ -67,6 +71,11 @@
                 android:exported="true"
                 android:label="@string/title_activity_club_index"
                 android:theme="@style/Theme.MyApplication.NoActionBar"/>
+
+        <activity android:name="activity.UserInfoActivity"
+                  android:exported="true"
+                  android:label="@string/title_activity_User_info"
+                  android:theme="@style/Theme.MyApplication.NoActionBar"/>
     </application>
 
 </manifest>
