@@ -17,12 +17,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class ClubChatActivity extends AppCompatActivity {
+public class ClubChatActivity extends AppCompatActivity // 社团聊天室
+{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_chat);
+        setContentView(R.layout.activity_chat);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         LinearLayout Frame = findViewById(R.id.chat_ChatBox);
         Button button=findViewById(R.id.Button_returnClubPage);
