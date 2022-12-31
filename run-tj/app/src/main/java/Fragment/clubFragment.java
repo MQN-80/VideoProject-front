@@ -2,6 +2,8 @@ package Fragment;
 
 import activity.ClubChatActivity;
 import activity.ClubIndexActivity;
+import activity.ClubSearchActivity;
+import activity.CreateClubActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -103,6 +105,16 @@ public class clubFragment extends Fragment implements View.OnClickListener{
                 }
                 break;
             }
+            case R.id.button6:{
+                Intent intent = new Intent(getActivity(), ClubSearchActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.HeadFrameButton:{
+                Intent intent = new Intent(getActivity(), CreateClubActivity.class);
+                startActivity(intent);
+                break;
+            }
         }
     }
 
@@ -110,15 +122,28 @@ public class clubFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ClubView = inflater.inflate(R.layout.fragment_club, container, false);
-        // Inflate the layout for this fragment
-        TextView textView=ClubView.findViewById(R.id.UserName);
-        textView.setText("我是丁真珍珠");
+
+        // 绑定按钮
+
+        // 绑定跳转社团按钮
         Button button1=ClubView.findViewById(R.id.button_ToClub);
         button1.setOnClickListener(this);
+
+        // 绑定跳转社区按钮
         Button button2=ClubView.findViewById(R.id.button_ToCommunity);
         button2.setOnClickListener(this);
+
+        // 绑定跳转聊天按钮
         Button button3=ClubView.findViewById(R.id.button_ToMessage);
         button3.setOnClickListener(this);
+
+        // 绑定搜索按钮
+        LinearLayout button4=ClubView.findViewById(R.id.button6);
+        button4.setOnClickListener(this);
+
+        Button button5=ClubView.findViewById(R.id.HeadFrameButton);
+        button5.setOnClickListener(this);
+
         chatLayout=ClubView.findViewById(R.id.chatLayout);
         chatLayout.setClub_Chat("2052523 陈柯羲 ：[动画表情]");
         chatLayout.setClub_Name("软件工程无重量级小组");

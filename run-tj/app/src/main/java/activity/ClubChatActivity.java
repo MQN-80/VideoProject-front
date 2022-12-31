@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +19,11 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class ClubChatActivity extends AppCompatActivity {
-
+    public Map<String,String> Arr=new HashMap<>();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_chat);
+        setContentView(R.layout.activity_chat);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         LinearLayout Frame = findViewById(R.id.chat_ChatBox);
         Button button=findViewById(R.id.Button_returnClubPage);
@@ -36,7 +37,6 @@ public class ClubChatActivity extends AppCompatActivity {
         String name=intent.getStringExtra("ClubData");
         TextView textView=findViewById(R.id.chat_ClubName);
         textView.setText(name);
-        Map<String,String> Arr=new HashMap<>();
         Arr.put("金逸 21:01:08","我来全写了");
         Arr.put("金逸 21:01:57","OK我写完了");
         Arr.put("展驰 21:02:23","写写你的");
@@ -70,4 +70,18 @@ public class ClubChatActivity extends AppCompatActivity {
             }
         }
     }
+    //绑定发送按钮,用于发送消息
+    public void sendMessage(){
+        Button sendButton=findViewById(R.id.sendMessage);
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText inputMessage=findViewById(R.id.chatMessage);
+                String message=inputMessage.getText().toString();
+
+
+            }
+        });
+    }
+
 }
