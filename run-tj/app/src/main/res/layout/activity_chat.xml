@@ -97,7 +97,8 @@
             android:layout_weight="10"
             android:id="@+id/chat_TextBox"
             android:weightSum="100">
-                <EditText
+                      <EditText
+                        android:id="@+id/chatMessage"
                         android:layout_width="0dp"
                         android:layout_weight="80"
                         android:paddingLeft="5dp"
@@ -107,14 +108,16 @@
                         android:layout_marginTop="10dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/box_chat"/>
-                <Button
-                        android:text="发送"
-                        android:textSize="20sp"
-                        android:layout_width="0dp"
-                        android:layout_weight="20"
-                        android:layout_height="50dp"
-                        android:background="@drawable/button_chat"
-                        android:layout_gravity="center"
-                        android:textColor="@color/white"/>
+        <Button
+                android:id="@+id/sendMessage"
+                android:text="发送"
+                android:textSize="20sp"
+                android:layout_width="0dp"
+                android:layout_weight="20"
+                android:layout_height="50dp"
+                android:background="@drawable/button_chat"
+                android:layout_gravity="center"
+                android:textColor="@color/white"/>
+
     </LinearLayout>
 </LinearLayout>

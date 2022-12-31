@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -68,6 +69,19 @@ public class ClubChatActivity extends AppCompatActivity {
                 Frame.addView(chatBox_left);
             }
         }
+    }
+    //绑定发送按钮,用于发送消息
+    public void sendMessage(){
+        Button sendButton=findViewById(R.id.sendMessage);
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText inputMessage=findViewById(R.id.chatMessage);
+                String message=inputMessage.getText().toString();
+
+
+            }
+        });
     }
 
 }
