@@ -18,7 +18,6 @@ import com.example.myapplication.R;
 
 public class UserCenterActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,5 +37,7 @@ public class UserCenterActivity extends AppCompatActivity {
         // 启动
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
     }
+
 }
