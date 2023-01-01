@@ -85,6 +85,12 @@
                   android:exported="true"
                   android:label="@string/title_activity_User_info"
                   android:theme="@style/Theme.MyApplication.NoActionBar"/>
+        <activity android:name="activity.MemberListActivity"
+                  android:exported="true"
+                  android:theme="@style/Theme.MyApplication.NoActionBar"/>
+        <activity android:name="activity.ClubInfoChangeActivity"
+                  android:exported="true"
+                  android:theme="@style/Theme.MyApplication.NoActionBar"/>
     </application>
 
 </manifest>
