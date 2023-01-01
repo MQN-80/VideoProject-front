@@ -37,13 +37,22 @@ public class ClubSearchActivity extends AppCompatActivity implements View.OnClic
                     try {
                         JSONObject jsonObject = (JSONObject) msg.obj;
                         String name = jsonObject.getString("associationName");
-                        // 取月日
                         String id = jsonObject.getString("id");
                         String memberNum=jsonObject.getString("memberNum");
                         String desc=jsonObject.getString("associationDesc");
-
                         ClubBoxLayout clubBoxLayout=(ClubBoxLayout) layoutInflater.inflate(R.layout.club_list_real, null, false);
                         clubBoxLayout.setClub_Name(name);
+                        clubBoxLayout.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(ClubSearchActivity.this, ClubIndexActivity.class);
+                                intent.putExtra("ClubName", name);
+                                intent.putExtra("ClubId", id);
+                                intent.putExtra("ClubDesc", desc);
+                                intent.putExtra("ClubJudge","0");
+                                startActivity(intent);
+                            }
+                        });
                         Frame.addView(clubBoxLayout);
                     }
                     catch (JSONException e){

@@ -95,12 +95,18 @@ public class clubFragment extends Fragment implements View.OnClickListener{
                         JSONObject jsonObject = iterator.next();
                         ClubBoxLayout clubBoxLayout = (ClubBoxLayout) layoutInflater.inflate(R.layout.club_list_real, null, false);
                         String name=jsonObject.getString("associationName");
+                        String id = jsonObject.getString("id");
+                        String memberNum=jsonObject.getString("memberNum");
+                        String desc=jsonObject.getString("associationDesc");
                         clubBoxLayout.setClub_Name(name);
                         clubBoxLayout.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(getActivity(), ClubIndexActivity.class);
-                                intent.putExtra("ClubData", name);
+                                intent.putExtra("ClubName", name);
+                                intent.putExtra("ClubId", id);
+                                intent.putExtra("ClubDesc", desc);
+                                intent.putExtra("ClubJudge","1");
                                 startActivity(intent);
                             }
                         });

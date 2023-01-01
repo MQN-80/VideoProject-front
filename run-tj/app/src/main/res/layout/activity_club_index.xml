@@ -154,6 +154,26 @@
             android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:id="@+id/Button_changInfo"
+            android:orientation="vertical">
+        <Button
+                android:layout_gravity="center"
+                android:text="修改社团信息"
+                android:textSize="20sp"
+        android:id="@+id/changeInfo"
+        android:textColor="@color/white"
+        android:layout_width="200dp"
+        android:background="@drawable/button_chat"
+        android:layout_height="70dp">
+
+        </Button>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/Button_changInfo"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
             android:orientation="vertical">
     <Button
             android:layout_gravity="center"
