@@ -91,6 +91,9 @@
         <activity android:name="activity.ClubInfoChangeActivity"
                   android:exported="true"
                   android:theme="@style/Theme.MyApplication.NoActionBar"/>
+        <activity android:name="activity.SendPostActivity"
+                  android:exported="true"
+                  android:theme="@style/Theme.MyApplication.NoActionBar"/>
     </application>
 
 </manifest>

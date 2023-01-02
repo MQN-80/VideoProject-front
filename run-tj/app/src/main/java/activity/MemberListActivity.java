@@ -1,5 +1,6 @@
 package activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import bean.ChatLayout;
 import bean.ClubMember;
@@ -40,6 +42,7 @@ public class MemberListActivity extends AppCompatActivity implements View.OnClic
         Intent intent=this.getIntent();
         ClubMember memberList=(ClubMember) intent.getSerializableExtra("memberList");
         String clubId=intent.getStringExtra("clubId");
+        String rank=intent.getStringExtra("rank");
         LinearLayout Frame=findViewById(R.id.Member_box);
         LayoutInflater layoutInflater = LayoutInflater.from(MemberListActivity.this);
         Iterator<String> iterator1=memberList.Member_Name.iterator();
@@ -57,17 +60,38 @@ public class MemberListActivity extends AppCompatActivity implements View.OnClic
             memberBox.setButton(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    asyncCall call=new asyncCall();
-                    Map<String,String> res=new HashMap<>();
-                    res.put("as_id",clubId);
-                    res.put("user_id",id);
-                    res.put("manager_id","0");
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            call.deleteAsync("/manager",res);
-                        }
-                    }).start();
+                    if(rank.equals("0"))
+                    {
+                        AlertDialog alertDialog1 = new AlertDialog.Builder(MemberListActivity.this)
+                                .setTitle("警告")//标题
+                                .setMessage("您没有足够权限！")//内容
+                                .create();
+                        alertDialog1.show();
+                    }
+                    else {
+                        asyncCall call = new asyncCall();
+                        Map<String, String> res = new HashMap<>();
+                        res.put("as_id", clubId);
+                        res.put("user_id", id);
+                        res.put("manager_id", "0");
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                call.deleteAsync("/manager", res);
+                            }
+                        }).start();
+                        AlertDialog alertDialog1 = new AlertDialog.Builder(MemberListActivity.this)
+                                .setTitle("通知")//标题
+                                .setMessage("已踢出该成员！")//内容
+                                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        finish();
+                                    }
+                                })
+                                .create();
+                        alertDialog1.show();
+                    }
                 }
             });
             Frame.addView(memberBox);

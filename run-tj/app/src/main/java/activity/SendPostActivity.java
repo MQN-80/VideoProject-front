@@ -15,10 +15,10 @@ import net.asyncCall;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateClubActivity extends AppCompatActivity implements View.OnClickListener {
+public class SendPostActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText editText1;
-    EditText editText2;
+
     public void onClick(View view) {
         switch (view.getId())
         {
@@ -26,49 +26,46 @@ public class CreateClubActivity extends AppCompatActivity implements View.OnClic
                 finish();
                 break;
             }
-            case(R.id.input_createClub):{
+            case(R.id.input_sendPost):{
                 asyncCall call=new asyncCall();
                 Map<String,String> res=new HashMap<>();
-                res.put("desc",editText2.getText().toString());
-                res.put("name",editText1.getText().toString());
-                res.put("user_id","6");
+                res.put("context",editText1.getText().toString());
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        call.postAsync("/club",res);
+                        call.postAsync("/article",res);
                     }
                 }).start();
                 AlertDialog alertDialog1 = new AlertDialog.Builder(this)
                         .setTitle("通知")//标题
-                        .setMessage("社团创建成功！")//内容
+                        .setMessage("动态发表成功！")//内容
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Intent intent2 = new Intent("android.intent.action.CART_BROADCAST");
-                                intent2.putExtra("data","refresh");
-                                LocalBroadcastManager.getInstance(CreateClubActivity.this).sendBroadcast(intent2);
+                                intent2.putExtra("data","refresh1");
+                                LocalBroadcastManager.getInstance(SendPostActivity.this).sendBroadcast(intent2);
                                 sendBroadcast(intent2);
                                 finish();
                             }
                         })
                         .create();
                 alertDialog1.show();
+                finish();
                 break;
             }
         }
     }
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_club);
+        setContentView(R.layout.send_post);
         //设置返回按钮
         Button returnButton=findViewById(R.id.Button_returnClubPage);
         returnButton.setOnClickListener(this);
-        //绑定社团名字输入框
-        editText1=findViewById(R.id.input_clubName);
-        //绑定社团描述输入框
-        editText2=findViewById(R.id.input_clubDesc);
-        //绑定创建社团按钮
-        Button button=findViewById(R.id.input_createClub);
+        //绑定动态输入框
+        editText1=findViewById(R.id.input_post);
+        //绑定发表动态按钮
+        Button button=findViewById(R.id.input_sendPost);
         button.setOnClickListener(this);
     }
 }

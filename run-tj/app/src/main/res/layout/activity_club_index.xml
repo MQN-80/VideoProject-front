@@ -139,7 +139,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:id="@+id/Club_MemberNumber"
-                android:text="114人"/>
+                android:text=""/>
         <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

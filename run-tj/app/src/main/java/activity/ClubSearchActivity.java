@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,7 @@ import java.util.Objects;
 
 public class ClubSearchActivity extends AppCompatActivity implements View.OnClickListener// 社团搜索页
 {
+    EditText editText;
     final Handler handle =new Handler(Looper.getMainLooper()){
         @Override
         public void handleMessage(Message msg) {
@@ -64,10 +66,39 @@ public class ClubSearchActivity extends AppCompatActivity implements View.OnClic
 
     };
     public void onClick(View view) {
+        LinearLayout Frame=findViewById(R.id.ClubSearch_Box);
         switch (view.getId())
         {
             case(R.id.Button_returnClubPage):{
                 finish();
+                break;
+            }
+            case(R.id.getSearchButton):{
+                Frame.removeAllViews();
+                //启动搜索
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        asyncCall asyncCall = new asyncCall();
+                        ArrayList<String> search_info=new ArrayList<>();
+                        search_info.add(editText.getText().toString());
+                        // 返回response解析Json
+                        Response response = asyncCall.getAsync("/SearchClub",search_info);
+                        try{
+                            JSONArray jsonArray = new JSONArray(Objects.requireNonNull(response.body()).string());
+                            for(int i=0;i<jsonArray.length();i++){
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                Message msg = new Message();
+                                msg.what = 0;
+                                msg.obj = jsonObject;
+                                handle.sendMessage(msg);
+                            }
+                        }
+                        catch (IOException | JSONException e){
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }).start();
                 break;
             }
         }
@@ -78,6 +109,9 @@ public class ClubSearchActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_search_club);
         Button returnButton=findViewById(R.id.Button_returnClubPage);
         returnButton.setOnClickListener(this);
+        //绑定输入框
+        editText=findViewById(R.id.input_box);
+        //进页面首先展示所有社团
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -99,5 +133,8 @@ public class ClubSearchActivity extends AppCompatActivity implements View.OnClic
                 }
             }
         }).start();
+        //绑定搜索按钮
+        Button searchButton=findViewById(R.id.getSearchButton);
+        searchButton.setOnClickListener(this);
     }
 }

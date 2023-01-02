@@ -93,11 +93,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/chatFrame"
                 android:orientation="vertical">
-
-            <bean.ChatLayout
-                    android:id="@+id/chatLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

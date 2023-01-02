@@ -43,7 +43,17 @@ public class ClubInfoChangeActivity extends AppCompatActivity implements View.On
                         call.postAsync("/clubInfo",res);
                     }
                 }).start();
-                finish();
+                AlertDialog alertDialog1 = new AlertDialog.Builder(this)
+                        .setTitle("通知")//标题
+                        .setMessage("社团信息修改成功！")//内容
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })
+                        .create();
+                alertDialog1.show();
                 break;
             }
             case(R.id.button_ChooseInfo):
