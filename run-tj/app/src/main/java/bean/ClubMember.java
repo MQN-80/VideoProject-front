@@ -11,18 +11,18 @@ public class ClubMember implements Serializable
 {
     public List<String> Member_Id;
     public List<String> Member_Name;
-    public List<String> Member_Phone;
+    public List<String> Rank;
 
     public ClubMember(){
         Member_Id=new ArrayList<>();
         Member_Name=new ArrayList<>();
-        Member_Phone=new ArrayList<>();
+        Rank=new ArrayList<>();
     }
 
-    public void addClubMember(String id,String name,String phone){
+    public void addClubMember(String id,String name,String rank){
         Member_Id.add(id);
         Member_Name.add(name);
-        Member_Phone.add(phone);
+        Rank.add(rank);
     }
 
 }

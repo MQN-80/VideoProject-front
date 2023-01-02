@@ -12,17 +12,19 @@ import com.example.myapplication.R;
 public class member_box extends LinearLayout {
     private TextView Member_Id;
     private TextView Member_Name;
-    private TextView Member_Phone;
+    private TextView Member_Rank;
 
-    private Button button;
+    private Button button1;
+    private Button button2;
 
     public member_box(Context context, AttributeSet attrs){
         super(context,attrs);
         LayoutInflater.from(context).inflate(R.layout.member_box,this);
         Member_Id=findViewById(R.id.MemberId);
         Member_Name=findViewById(R.id.MemberName);
-        Member_Phone=findViewById(R.id.MemberPhone);
-        button=findViewById(R.id.quitClubButton);
+        Member_Rank=findViewById(R.id.MemberPhone);
+        button1=findViewById(R.id.quitClubButton);
+        button2=findViewById(R.id.changeRankButton);
     }
 
     public TextView getMember_Id() {
@@ -33,13 +35,15 @@ public class member_box extends LinearLayout {
         return Member_Name;
     }
 
-    public TextView getMember_Phone() {
-        return Member_Phone;
+    public TextView getMember_Rank() {
+        return Member_Rank;
     }
 
-    public Button getButton() {
-        return button;
+    public Button getButton1() {
+        return button1;
     }
+
+    public Button getButton2(){return button2;}
 
     public void setMember_Id(String member_Id) {
         Member_Id.setText(member_Id);
@@ -47,11 +51,14 @@ public class member_box extends LinearLayout {
     public void setMember_Name(String member_Name) {
         Member_Name.setText(member_Name);
     }
-    public void setMember_Phone(String member_Phone) {
-        Member_Phone.setText(member_Phone);
+    public void setMember_Rank(String member_Rank) {
+        Member_Rank.setText(member_Rank);
     }
 
-    public void setButton(OnClickListener onClickListener) {
-        this.button.setOnClickListener(onClickListener);
+    public void setButton1(OnClickListener onClickListener) {
+        this.button1.setOnClickListener(onClickListener);
+    }
+    public void setButton2(OnClickListener onClickListener) {
+        this.button2.setOnClickListener(onClickListener);
     }
 }

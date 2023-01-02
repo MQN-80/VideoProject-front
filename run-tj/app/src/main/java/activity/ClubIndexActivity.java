@@ -32,6 +32,8 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
     String id;
 
     Integer rank;
+
+    String []rankList={"用户","管理员","社长"};
     public void onClick(View view) {
         switch (view.getId())
         {
@@ -119,8 +121,8 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 String name=jsonObject.getString("name");
                                 String id=jsonObject.getString("id");
-                                String phone=jsonObject.getString("phone");
-                                User.addClubMember(id,name,phone);
+                                String member_rank=jsonObject.getString("rank");
+                                User.addClubMember(id,name,member_rank);
                             }
                             Log.i("ClubIndexActivity",User.Member_Id.toString());
                             Intent intent = new Intent(ClubIndexActivity.this, MemberListActivity.class);
@@ -137,7 +139,7 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                 break;
             }
             case(R.id.changeInfo):{
-                if(rank==0)
+                if(rank<2)
                 {
                     AlertDialog alertDialog1 = new AlertDialog.Builder(this)
                             .setTitle("警告")//标题
@@ -145,7 +147,7 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                             .create();
                     alertDialog1.show();
                 }
-                else if(rank>0) {
+                else if(rank==2) {
                     Intent intent = new Intent(ClubIndexActivity.this, ClubInfoChangeActivity.class);
                     intent.putExtra("clubId", id);
                     startActivity(intent);
@@ -200,6 +202,8 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                     try {
                         rank = Integer.parseInt(Objects.requireNonNull(response.body()).string());
                         Log.i("权限为", rank.toString());
+                        TextView textView=findViewById(R.id.Club_YourRank);
+                        textView.setText("您在该社团的权限为："+rankList[rank]);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
