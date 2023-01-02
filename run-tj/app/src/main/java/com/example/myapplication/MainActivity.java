@@ -1,14 +1,14 @@
 package com.example.myapplication;
 
-import Service.MessageService;
+import com.example.myapplication.Service.MessageService;
 import Utils.PoseRecognition;
 import activity.RegisterActivity;
 import activity.UserCenterActivity;
 import activity.verification;
-import android.content.ContentValues;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,27 +19,18 @@ import bean.LoginEntity;
 import com.google.gson.Gson;
 import net.asyncCall;
 import okhttp3.Response;
-import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.handshake.ServerHandshake;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
-import java.net.URI;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.content.ContentValues.TAG;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("+++++++++++++");
         startService(intent);
     }
-
 
     public void login(){
         new Thread(new Runnable() {
