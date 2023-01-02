@@ -1,14 +1,10 @@
 package activity;
 
-import Service.MessageService;
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
-import com.example.myapplication.MainActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.snackbar.Snackbar;
+
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;

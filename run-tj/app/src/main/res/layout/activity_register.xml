@@ -136,4 +136,13 @@
                 android:textColor="@color/white" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="263dp"
+        android:layout_height="101dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="77dp"
+        tools:layout_editor_absoluteY="138dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
