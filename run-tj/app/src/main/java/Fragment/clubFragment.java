@@ -1,12 +1,12 @@
 package Fragment;
 
 import activity.*;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.*;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -14,9 +14,12 @@ import android.os.Message;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,10 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -156,11 +156,43 @@ public class clubFragment extends Fragment implements View.OnClickListener{
                             JSONObject jsonObject = iterator.next();
                             CommunityBox communityBox=(CommunityBox) layoutInflater.inflate(R.layout.community_box_real,null,false);
                             String time=jsonObject.getString("createTime");
-                            String id = jsonObject.getString("userId");
+                            Integer postId=jsonObject.getInt("id");
+                            String name = jsonObject.getString("name");
                             String context=jsonObject.getString("context");
-                            communityBox.setUser_Name(id);
+                            Integer likes=jsonObject.getInt("likes");
+                            Boolean like=jsonObject.getBoolean("like");
+                            communityBox.setUser_Name(name);
                             communityBox.setCommunity_Box(context);
                             communityBox.setCreate_Time(time);
+                            communityBox.setLikes(likes.toString());
+                            Log.i("该文章是否点赞",like.toString());
+                            if(like)
+                            {
+                                ImageView button=communityBox.getButton();
+                                button.setImageResource(R.drawable.liked);
+                            }
+                            else {
+                                communityBox.setButton(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        ImageView button=communityBox.getButton();
+                                        button.setImageResource(R.drawable.liked);
+                                        Integer likes=Integer.parseInt(communityBox.getLikes());
+                                        likes++;
+                                        communityBox.setLikes(likes.toString());
+                                        asyncCall call = new asyncCall();
+                                        Map<String, String> res = new HashMap<>();
+                                        Log.i("1",postId.toString());
+                                        res.put("id", postId.toString());
+                                        new Thread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                call.putAsync("/article/like", res);
+                                            }
+                                        }).start();
+                                    }
+                                });
+                            }
                             Frame.addView(communityBox);
                         }
                         catch (JSONException e){
