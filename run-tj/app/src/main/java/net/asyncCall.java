@@ -147,6 +147,28 @@ public class asyncCall implements netCall {
         }
         return null;
     }
+
+    public Response putAsync(String url, Map<String, String> headerParams, Map<String, String> bodyParams)
+    {
+        String urlNew=this.url+url;
+        FormBody.Builder formBody=new FormBody.Builder();
+        for(String key:bodyParams.keySet()){
+            formBody.add(key,bodyParams.get(key));
+        }
+        RequestBody body=formBody.build();
+        Headers headers = setHeaderParams(headerParams);
+        //2.创建Request对象，设置一个url地址,设置请求方式。
+        Request request = new Request.Builder().url(urlNew).put(body).headers(headers).build();
+        Call call = client.newCall(request);
+        try {
+            Response response = call.execute();
+            //Log.i(TAG, "body="+response.body().string());
+            return response;
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     public Response deleteAsync(String url, Map<String, String> bodyParams){
         String urlNew=this.url+url;
         FormBody.Builder formBody=new FormBody.Builder();

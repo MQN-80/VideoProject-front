@@ -1,5 +1,6 @@
 package activity;
 
+import Utils.ACache;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -35,6 +36,7 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
 
     String []rankList={"用户","管理员","社长"};
     public void onClick(View view) {
+        ACache mCache=ACache.get(this);
         switch (view.getId())
         {
             case(R.id.Button_returnClubPage):{
@@ -47,7 +49,7 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                     asyncCall call=new asyncCall();
                     Map<String,String> res=new HashMap<>();
                     res.put("as_id",id);
-                    res.put("user_id","6");
+                    res.put("user_id",mCache.getAsString("user_id"));
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -75,7 +77,7 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                     asyncCall call=new asyncCall();
                     Map<String,String> res=new HashMap<>();
                     res.put("as_id",id);
-                    res.put("user_id","6");
+                    res.put("user_id",mCache.getAsString("user_id"));
                     res.put("manager_id","0");
                     new Thread(new Runnable() {
                         @Override
@@ -102,55 +104,73 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                 break;
             }
             case(R.id.club_index_member):{
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        asyncCall asyncCall = new asyncCall();
-                        ArrayList<String> list = new ArrayList<>();
-                        Map<String,String> res=new HashMap<>();
-                        res.put("as_id",id);
-                        res.put("rank","0");
-                        list.add(id);
-                        list.add("0");
-                        // 返回response解析Json
-                        Response response = asyncCall.getAsync("/manager",list);
-                        try{
-                            ClubMember User=new ClubMember();
-                            JSONArray jsonArray = new JSONArray(Objects.requireNonNull(response.body()).string());
-                            for(int i=0;i<jsonArray.length();i++){
-                                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                String name=jsonObject.getString("name");
-                                String id=jsonObject.getString("id");
-                                String member_rank=jsonObject.getString("rank");
-                                User.addClubMember(id,name,member_rank);
-                            }
-                            Log.i("ClubIndexActivity",User.Member_Id.toString());
-                            Intent intent = new Intent(ClubIndexActivity.this, MemberListActivity.class);
-                            intent.putExtra("memberList",User);
-                            intent.putExtra("clubId",id);
-                            intent.putExtra("rank",rank.toString());
-                            startActivity(intent);
-                        }
-                        catch (IOException | JSONException e){
-                            throw new RuntimeException(e);
-                        }
-                    }
-                }).start();
-                break;
-            }
-            case(R.id.changeInfo):{
-                if(rank<2)
+                if(judge.equals("0"))
                 {
                     AlertDialog alertDialog1 = new AlertDialog.Builder(this)
                             .setTitle("警告")//标题
-                            .setMessage("您没有足够权限！")//内容
+                            .setMessage("请先加入社团！")//内容
                             .create();
                     alertDialog1.show();
                 }
-                else if(rank==2) {
-                    Intent intent = new Intent(ClubIndexActivity.this, ClubInfoChangeActivity.class);
-                    intent.putExtra("clubId", id);
-                    startActivity(intent);
+                else if(judge.equals("1")) {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            asyncCall asyncCall = new asyncCall();
+                            ArrayList<String> list = new ArrayList<>();
+                            Map<String, String> res = new HashMap<>();
+                            res.put("as_id", id);
+                            res.put("rank", "0");
+                            list.add(id);
+                            list.add("0");
+                            // 返回response解析Json
+                            Response response = asyncCall.getAsync("/manager", list);
+                            try {
+                                ClubMember User = new ClubMember();
+                                JSONArray jsonArray = new JSONArray(Objects.requireNonNull(response.body()).string());
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                    String name = jsonObject.getString("name");
+                                    String id = jsonObject.getString("id");
+                                    String member_rank = jsonObject.getString("rank");
+                                    User.addClubMember(id, name, member_rank);
+                                }
+                                Log.i("ClubIndexActivity", User.Member_Id.toString());
+                                Intent intent = new Intent(ClubIndexActivity.this, MemberListActivity.class);
+                                intent.putExtra("memberList", User);
+                                intent.putExtra("clubId", id);
+                                intent.putExtra("rank", rank.toString());
+                                startActivity(intent);
+                            } catch (IOException | JSONException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                    }).start();
+                }
+                break;
+            }
+            case(R.id.changeInfo):{
+                if(judge.equals("0"))
+                {
+                    AlertDialog alertDialog1 = new AlertDialog.Builder(this)
+                            .setTitle("警告")//标题
+                            .setMessage("请先加入社团！")//内容
+                            .create();
+                    alertDialog1.show();
+                }
+                else if(judge.equals("1")) {
+                    if (rank < 2) {
+                        AlertDialog alertDialog1 = new AlertDialog.Builder(this)
+                                .setTitle("警告")//标题
+                                .setMessage("您没有足够权限！")//内容
+                                .create();
+                        alertDialog1.show();
+                    } else if (rank == 2) {
+                        Intent intent = new Intent(ClubIndexActivity.this, ClubInfoChangeActivity.class);
+                        intent.putExtra("clubId", id);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
                 break;
             }
@@ -160,6 +180,7 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_club_index);
+        ACache mCache=ACache.get(this);
         Intent intent=this.getIntent();
         judge=intent.getStringExtra("ClubJudge");
         String name=intent.getStringExtra("ClubName");
@@ -195,7 +216,7 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                 public void run() {
                     asyncCall asyncCall = new asyncCall();
                     ArrayList<String> list = new ArrayList<>();
-                    list.add("6");
+                    list.add(mCache.getAsString("user_id"));
                     list.add(id);
                     // 返回response解析Json
                     Response response = asyncCall.getAsync("/getRank", list);

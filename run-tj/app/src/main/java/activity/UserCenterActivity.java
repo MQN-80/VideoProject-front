@@ -21,7 +21,6 @@ public class UserCenterActivity extends AppCompatActivity {
 
         // 获取页面上的底部导航栏控件
         BottomNavigationView navView = findViewById(R.id.nav_view);
-
         // 配置navigation与底部菜单之间的联系
         // 底部菜单的样式里面的item里面的ID与navigation布局里面指定的ID必须相同，否则会出现绑定失败的情况
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(

@@ -1,5 +1,6 @@
 package activity;
 
+import Utils.ACache;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,11 +28,12 @@ public class CreateClubActivity extends AppCompatActivity implements View.OnClic
                 break;
             }
             case(R.id.input_createClub):{
+                ACache mCache=ACache.get(this);
                 asyncCall call=new asyncCall();
                 Map<String,String> res=new HashMap<>();
                 res.put("desc",editText2.getText().toString());
                 res.put("name",editText1.getText().toString());
-                res.put("user_id","6");
+                res.put("user_id",mCache.getAsString("user_id"));
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
