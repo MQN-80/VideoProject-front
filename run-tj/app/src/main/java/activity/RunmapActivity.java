@@ -186,18 +186,18 @@ public class RunmapActivity extends AppCompatActivity  {
             public void onClick(View v) {
                 if(!ifPause)
                 {//监听按钮，如果点击，就暂停地图设置
-                mapView.onPause();
-                mSensorManager.unregisterListener(mListener);
-                mLocationClient.stopLocation();
+                    mapView.onPause();
+                    mSensorManager.unregisterListener(mListener);
+                    mLocationClient.stopLocation();
 
-                chronometer.stop();
-                // 保存这次记录了的时间。SystemClock.elapsedRealtime()是系统启动到现在的毫秒数
-                recordingTime=SystemClock.elapsedRealtime()-chronometer.getBase();//getBase():返回时间
-                //Log.e("停止计时", String.valueOf(chronometer.getBase()));
+                    chronometer.stop();
+                    // 保存这次记录了的时间。SystemClock.elapsedRealtime()是系统启动到现在的毫秒数
+                    recordingTime=SystemClock.elapsedRealtime()-chronometer.getBase();//getBase():返回时间
+                    //Log.e("停止计时", String.valueOf(chronometer.getBase()));
 
 
-                ifPause=true;
-                button_pause.setText("恢复");
+                    ifPause=true;
+                    button_pause.setText("恢复");
                 }
                 else{
                     mapView.onResume();
