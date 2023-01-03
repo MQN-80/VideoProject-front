@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 设置上下左右内边距
+         top:上内边距
+         bottom:下内边距
+         left:左内边距
+         right:右内边距
+     -->
+    <padding
+            android:bottom="5dp"
+            android:left="5dp"
+            android:right="5dp"
+            android:top="5dp"
+    />
+    <!-- 设置圆角矩形
+         radius:圆角弧度，核心代码
+    -->
+    <corners android:radius="10dp" />
+    <!-- 设置描边效果
+         width:描边宽度
+         color:描边颜色
+     -->
+    <stroke
+            android:width="2px"
+            android:color="#001E90FF" />
+    <!-- 设置填充效果
+         color:填充颜色
+     -->
+    <solid android:color="@color/lightGrey" />
+</shape>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="100"
         android:orientation="vertical">
@@ -10,18 +9,17 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
         <ImageView
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/back"
-                android:id="@+id/backToCenter2">
+                android:id="@+id/backToCenter">
         </ImageView>
 
         <TextView
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
-                android:text="个人信息"
+                android:text="身体数据"
                 android:textSize="30sp"
                 android:gravity="center"
                 tools:ignore="RtlHardcoded">
@@ -34,24 +32,14 @@
                 android:textSize="15sp"
                 android:layout_gravity="center"
                 tools:ignore="RtlHardcoded"
-                android:id="@+id/edit_userInfo">
+                android:id="@+id/edit_physical">
         </TextView>
     </LinearLayout>
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:layout_weight="30">
-        <ImageView
-                android:layout_gravity="center"
-                android:layout_width="136dp"
-                android:layout_height="129dp"
-                android:src="@drawable/center"
-                android:id="@+id/avatar8"/>
-    </LinearLayout>
-
+    <View android:layout_width="match_parent"
+          android:layout_height="3dp"
+          android:background="@color/black"
+          android:layout_marginTop="20dp"/>
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -62,22 +50,22 @@
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="这是第一行"
-                    android:id="@+id/line1_1"
+                    android:text="身高"
+                    android:id="@+id/l2ine1_1"
                     android:layout_marginStart="15dp"
                     android:textStyle="bold"
                     android:layout_weight="60"
-                    android:textSize="20sp">
+                    android:textSize="25sp">
             </TextView>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="这是第一行"
-                    android:id="@+id/line1_2"
+                    android:id="@+id/l2ine1_2"
                     android:layout_marginRight="15dp"
                     android:textStyle="bold"
                     android:layout_weight="40"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:gravity="right" tools:ignore="RtlHardcoded">
             </TextView>
         </LinearLayout>
@@ -101,22 +89,22 @@
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="这是第二行"
-                    android:id="@+id/line2_1"
+                    android:text="体重"
+                    android:id="@+id/l2ine2_1"
                     android:layout_marginStart="15dp"
                     android:textStyle="bold"
                     android:layout_weight="60"
-                    android:textSize="20sp">
+                    android:textSize="25sp">
             </TextView>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="这是第二行"
-                    android:id="@+id/line2_2"
+                    android:id="@+id/l2ine2_2"
                     android:layout_marginRight="15dp"
                     android:textStyle="bold"
                     android:layout_weight="40"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:gravity="right" tools:ignore="RtlHardcoded">
             </TextView>
         </LinearLayout>
@@ -140,22 +128,22 @@
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="这是第三行"
-                    android:id="@+id/line3_1"
+                    android:text="BMI"
+                    android:id="@+id/l2ine3_1"
                     android:layout_marginStart="15dp"
                     android:textStyle="bold"
                     android:layout_weight="60"
-                    android:textSize="20sp">
+                    android:textSize="25sp">
             </TextView>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="这是第三行"
-                    android:id="@+id/line3_2"
+                    android:id="@+id/l2ine3_2"
                     android:layout_marginRight="15dp"
                     android:textStyle="bold"
                     android:layout_weight="40"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:gravity="right" tools:ignore="RtlHardcoded">
             </TextView>
         </LinearLayout>
@@ -179,22 +167,22 @@
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="这是第四行"
-                    android:id="@+id/line4_1"
+                    android:text="腰围"
+                    android:id="@+id/l2ine4_1"
                     android:layout_marginStart="15dp"
                     android:textStyle="bold"
                     android:layout_weight="60"
-                    android:textSize="20sp">
+                    android:textSize="25sp">
             </TextView>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="这是第四行"
-                    android:id="@+id/line4_2"
+                    android:id="@+id/l2ine4_2"
                     android:layout_marginRight="15dp"
                     android:textStyle="bold"
                     android:layout_weight="40"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:gravity="right" tools:ignore="RtlHardcoded">
             </TextView>
         </LinearLayout>
@@ -215,25 +203,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="100">
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="胸围"
+                    android:id="@+id/l2ine5_1"
+                    android:layout_marginStart="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="60"
+                    android:textSize="25sp">
+            </TextView>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="这是第五行"
-                    android:id="@+id/line5_1"
-                    android:layout_marginStart="15dp"
-                    android:textStyle="bold"
-                    android:layout_weight="60"
-                    android:textSize="20sp">
-            </TextView>
-            <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="这是第五行"
-                    android:id="@+id/line5_2"
+                    android:id="@+id/l2ine5_2"
                     android:layout_marginRight="15dp"
                     android:textStyle="bold"
                     android:layout_weight="40"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:gravity="right" tools:ignore="RtlHardcoded">
             </TextView>
         </LinearLayout>
@@ -257,22 +245,22 @@
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="这是第六行"
-                    android:id="@+id/line6_1"
+                    android:text="臀围"
+                    android:id="@+id/l2ine6_1"
                     android:layout_marginStart="15dp"
                     android:textStyle="bold"
                     android:layout_weight="60"
-                    android:textSize="20sp">
+                    android:textSize="25sp">
             </TextView>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="这是第六行"
-                    android:id="@+id/line6_2"
+                    android:id="@+id/l2ine6_2"
                     android:layout_marginRight="15dp"
                     android:textStyle="bold"
                     android:layout_weight="40"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:gravity="right" tools:ignore="RtlHardcoded">
             </TextView>
         </LinearLayout>
@@ -286,34 +274,4 @@
             android:layout_width="match_parent"
             android:layout_height="6dp">
     </TextView>
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="100">
-            <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="这是第七行"
-                    android:id="@+id/line7_1"
-                    android:layout_marginStart="15dp"
-                    android:textStyle="bold"
-                    android:layout_weight="60"
-                    android:textSize="20sp">
-            </TextView>
-            <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="这是第七行"
-                    android:id="@+id/line7_2"
-                    android:layout_marginRight="15dp"
-                    android:textStyle="bold"
-                    android:layout_weight="40"
-                    android:textSize="20sp"
-                    android:gravity="right" tools:ignore="RtlHardcoded">
-            </TextView>
-        </LinearLayout>
-    </LinearLayout>
 </LinearLayout>

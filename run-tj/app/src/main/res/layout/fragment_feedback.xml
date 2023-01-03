@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4169e1">
+
+        <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/back"
+                android:id="@+id/backToCenter3">
+        </ImageView>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="用户反馈"
+                android:textSize="30sp"
+                android:gravity="center"
+                tools:ignore="RtlHardcoded">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="15"
+                android:layout_height="30dp"
+                android:paddingLeft="5dp"
+                android:text="用户反馈提交"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#000000" />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/input_feedback"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:hint="输入你要反馈的信息"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="300dp"
+                android:background="@drawable/box_edit"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical">
+        <Button
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="提交反馈"
+                android:id="@+id/input_PushFeedback"
+                android:textColor="@color/white"
+                android:background="@drawable/button_chat"/>
+    </LinearLayout>
+</LinearLayout>
