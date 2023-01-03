@@ -1,7 +1,6 @@
 package activity;
 
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.content.*;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.example.myapplication.R;
 import net.asyncCall;
 
@@ -23,6 +23,7 @@ public class ClubInfoChangeActivity extends AppCompatActivity implements View.On
     String as_id;
 
     TextView textView;
+
     public void onClick(View view) {
         switch (view.getId())
         {
@@ -49,6 +50,10 @@ public class ClubInfoChangeActivity extends AppCompatActivity implements View.On
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent2 = new Intent("android.intent.action.CART_BROADCAST");
+                        intent2.putExtra("data","refresh");
+                        LocalBroadcastManager.getInstance(ClubInfoChangeActivity.this).sendBroadcast(intent2);
+                        sendBroadcast(intent2);
                         finish();
                     }
                 })

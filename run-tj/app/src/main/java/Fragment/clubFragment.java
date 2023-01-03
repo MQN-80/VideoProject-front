@@ -1,5 +1,6 @@
 package Fragment;
 
+import Utils.ACache;
 import activity.*;
 import android.content.*;
 import android.graphics.Bitmap;
@@ -49,14 +50,9 @@ public class clubFragment extends Fragment implements View.OnClickListener{
 
     View ClubView;
 
-    String imageUrl = "http://hiphotos.baidu.com/baidu/pic/item/7d8aebfebf3f9e125c6008d8.jpg";
-
     List<JSONObject> clubList=new ArrayList<>();
 
     List<JSONObject> postLists=new ArrayList<>();
-    String []arr={"金逸太强了小组","软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群",
-            "金逸太强了小组","软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群","金逸太强了小组",
-            "软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群"};
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -88,13 +84,14 @@ public class clubFragment extends Fragment implements View.OnClickListener{
         LinearLayout Frame=ClubView.findViewById(R.id.chatFrame);
         Frame.removeAllViews();
         clubList=new ArrayList<>();
+        ACache mCache=ACache.get(getActivity());
         new Thread(new Runnable() {
             @Override
             public void run() {
                 asyncCall asyncCall = new asyncCall();
                 ArrayList<String> user_id = new ArrayList<>();
                 // 获取要查询记录的id
-                user_id.add("6");
+                user_id.add(mCache.getAsString("user_id"));
                 // 返回response解析Json
                 Response response = asyncCall.getAsync("/getClub",user_id);
                 Log.i("ClubActivity",response.toString());
@@ -120,6 +117,7 @@ public class clubFragment extends Fragment implements View.OnClickListener{
         public void handleMessage(Message msg) {
             LinearLayout Frame=ClubView.findViewById(R.id.chatFrame);
             LayoutInflater layoutInflater = LayoutInflater.from(getContext());
+            ACache mCache=ACache.get(getActivity());
             switch (msg.what) {
                 case 0: {
                     try {
@@ -167,10 +165,7 @@ public class clubFragment extends Fragment implements View.OnClickListener{
                             communityBox.setLikes(likes.toString());
                             Log.i("该文章是否点赞",like.toString());
                             if(like)
-                            {
-                                ImageView button=communityBox.getButton();
-                                button.setImageResource(R.drawable.liked);
-                            }
+                                ;
                             else {
                                 communityBox.setButton(new View.OnClickListener() {
                                     @Override
@@ -182,16 +177,19 @@ public class clubFragment extends Fragment implements View.OnClickListener{
                                         communityBox.setLikes(likes.toString());
                                         asyncCall call = new asyncCall();
                                         Map<String, String> res = new HashMap<>();
+                                        Map<String, String> head = new HashMap<>();
+                                        head.put("satoken",mCache.getAsString("token"));
                                         Log.i("1",postId.toString());
                                         res.put("id", postId.toString());
                                         new Thread(new Runnable() {
                                             @Override
                                             public void run() {
-                                                call.putAsync("/article/like", res);
+                                                call.putAsync("/article/like",head, res);
                                             }
                                         }).start();
                                     }
                                 });
+                                like=true;
                             }
                             Frame.addView(communityBox);
                         }
@@ -331,7 +329,7 @@ public class clubFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         ClubView = inflater.inflate(R.layout.fragment_club, container, false);
         clubList=new ArrayList<>();
-
+        ACache mCache=ACache.get(getActivity());
         // 绑定按钮
 
         // 绑定跳转社团按钮
@@ -377,7 +375,7 @@ public class clubFragment extends Fragment implements View.OnClickListener{
                 asyncCall asyncCall = new asyncCall();
                 ArrayList<String> user_id = new ArrayList<>();
                 // 获取要查询记录的id
-                user_id.add("6");
+                user_id.add(mCache.getAsString("user_id"));
                 // 返回response解析Json
                 Response response = asyncCall.getAsync("/getClub",user_id);
                 Log.i("ClubActivity",response.toString());
@@ -399,7 +397,7 @@ public class clubFragment extends Fragment implements View.OnClickListener{
         }).start();
         //绑定顶部栏布局
         headFrameLayout=ClubView.findViewById(R.id.headFrameLayout);
-        headFrameLayout.setUser_Name("田所浩二");
+        headFrameLayout.setUser_Name(mCache.getAsString("user_id"));
         headFrameLayout.setUser_State("正在观看 《真夏夜之梦》");
         return ClubView;
     }
