@@ -16,11 +16,24 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:background="@drawable/edge"
-            android:id="@+id/user_upPart">
-
+            android:id="@+id/user_upPart"
+            android:orientation="vertical"
+            android:weightSum="100">
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="20">
+            <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/search"
+                    android:id="@+id/search_user">
+            </ImageView>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="70"
                 android:orientation="vertical"
                 android:layout_gravity="center">
             <ImageView
@@ -33,7 +46,10 @@
                     tools:layout_editor_absoluteY="311dp"
                     tools:layout_editor_absoluteX="96dp"/>
         </LinearLayout>
-
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"/>
     </LinearLayout><!--End of user_upPart-->
 
     <LinearLayout android:layout_width="match_parent"
