@@ -1,6 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/back"
+                android:id="@+id/backToCenter2">
+        </ImageView>
+
+        <TextView
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:text="个人信息"
+                android:textSize="30sp"
+                android:gravity="center"
+                tools:ignore="RtlHardcoded">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_weight="30">
+        <ImageView
+                android:layout_gravity="center"
+                android:layout_width="136dp"
+                android:layout_height="129dp"
+                android:src="@drawable/center"
+                android:id="@+id/avatar8"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100">
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第一行"
+                    android:id="@+id/line1_1"
+                    android:layout_marginStart="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="60"
+                    android:textSize="20sp">
+            </TextView>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第一行"
+                    android:id="@+id/line1_2"
+                    android:layout_marginRight="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="40"
+                    android:textSize="20sp"
+                    android:gravity="right" tools:ignore="RtlHardcoded">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#000000" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="6dp">
+    </TextView>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100">
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第二行"
+                    android:id="@+id/line2_1"
+                    android:layout_marginStart="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="60"
+                    android:textSize="20sp">
+            </TextView>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第二行"
+                    android:id="@+id/line2_2"
+                    android:layout_marginRight="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="40"
+                    android:textSize="20sp"
+                    android:gravity="right" tools:ignore="RtlHardcoded">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#000000" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="6dp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100">
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第三行"
+                    android:id="@+id/line3_1"
+                    android:layout_marginStart="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="60"
+                    android:textSize="20sp">
+            </TextView>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第三行"
+                    android:id="@+id/line3_2"
+                    android:layout_marginRight="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="40"
+                    android:textSize="20sp"
+                    android:gravity="right" tools:ignore="RtlHardcoded">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#000000" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="6dp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100">
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第四行"
+                    android:id="@+id/line4_1"
+                    android:layout_marginStart="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="60"
+                    android:textSize="20sp">
+            </TextView>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第四行"
+                    android:id="@+id/line4_2"
+                    android:layout_marginRight="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="40"
+                    android:textSize="20sp"
+                    android:gravity="right" tools:ignore="RtlHardcoded">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#000000" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="6dp">
+    </TextView>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100">
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第五行"
+                    android:id="@+id/line5_1"
+                    android:layout_marginStart="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="60"
+                    android:textSize="20sp">
+            </TextView>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第五行"
+                    android:id="@+id/line5_2"
+                    android:layout_marginRight="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="40"
+                    android:textSize="20sp"
+                    android:gravity="right" tools:ignore="RtlHardcoded">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#000000" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="6dp">
+    </TextView>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100">
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第六行"
+                    android:id="@+id/line6_1"
+                    android:layout_marginStart="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="60"
+                    android:textSize="20sp">
+            </TextView>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="这是第六行"
+                    android:id="@+id/line6_2"
+                    android:layout_marginRight="15dp"
+                    android:textStyle="bold"
+                    android:layout_weight="40"
+                    android:textSize="20sp"
+                    android:gravity="right" tools:ignore="RtlHardcoded">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#000000" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="6dp">
+    </TextView>
+</LinearLayout>
