@@ -1,25 +1,16 @@
 package activity;
 
-import Service.MessageService;
-import Utils.ACache;
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
-import com.example.myapplication.MainActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.snackbar.Snackbar;
+
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.myapplication.R;
-import net.asyncCall;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class UserCenterActivity extends AppCompatActivity {
 
@@ -27,6 +18,7 @@ public class UserCenterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_center);
+
         // 获取页面上的底部导航栏控件
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
@@ -41,7 +33,6 @@ public class UserCenterActivity extends AppCompatActivity {
         // 启动
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
     }
 
 }

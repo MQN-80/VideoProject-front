@@ -1,16 +1,16 @@
 package com.example.myapplication;
 
-import Service.MessageService;
 import Utils.ACache;
+import android.content.Context;
+import com.example.myapplication.Service.MessageService;
 import Utils.PoseRecognition;
 import activity.RegisterActivity;
 import activity.UserCenterActivity;
 import activity.verification;
-import android.content.ContentValues;
-import android.content.Context;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,27 +21,18 @@ import bean.LoginEntity;
 import com.google.gson.Gson;
 import net.asyncCall;
 import okhttp3.Response;
-import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.handshake.ServerHandshake;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
-import java.net.URI;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.content.ContentValues.TAG;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,12 +71,12 @@ public class MainActivity extends AppCompatActivity {
         startService(intent);
     }
 
-
     public void login(){
         Context that=this;
         new Thread(new Runnable() {
             @Override
             public void run() {
+
                 EditText info=findViewById(R.id.login_info);
                 EditText password=findViewById(R.id.login_password);
                 if(info.getText().toString()!=""&&password.getText().toString()!="")   //假如都不为空，则进行密码验证
@@ -100,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
                             Response mid=login.postAsync("/Login",params);
                             Gson gson=new Gson();
                             LoginEntity result= null;
-                            System.out.println(mid.headers("Set-Cookie").get(0));
                             try {
                                 result = gson.fromJson(mid.body().string(), LoginEntity.class);
                             } catch (IOException e) {
@@ -108,11 +98,10 @@ public class MainActivity extends AppCompatActivity {
                             }
                             //假如200则表示登录成功,进行缓存,
                             if(result.data!=null) {
-                                System.out.println(result.data.getLoginId());
-                                ACache mCache= ACache.get(that);
-                                mCache.put("user_id",result.data.getLoginId());
-                                mCache.put("token",result.data.getTokenValue());
                                 Intent intent=new Intent();
+                                ACache mcache=ACache.get(that);
+                                mcache.put("user_id", result.data.getLoginId());
+                                mcache.put("token",result.data.getTokenValue());
                                 intent.setClass(MainActivity.this, UserCenterActivity.class);
                                 startActivity(intent);
                             }

@@ -78,12 +78,14 @@
                     android:src="@drawable/like"
                     android:id="@+id/Community_LikeButton"
                     android:background="#fffafa"/>
-            <ImageView
+            <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="15"
-                    android:src="@drawable/comment"
-                    android:id="@+id/Community_CommentButton"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="点赞数"
+                    android:id="@+id/Community_LikeNum"
                     android:background="#fffafa"/>
         </LinearLayout>
     </LinearLayout>
