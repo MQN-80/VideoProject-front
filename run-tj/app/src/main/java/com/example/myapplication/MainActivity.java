@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import Utils.ACache;
+import android.content.Context;
 import com.example.myapplication.Service.MessageService;
 import Utils.PoseRecognition;
 import activity.RegisterActivity;
@@ -70,9 +72,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void login(){
+        Context that=this;
         new Thread(new Runnable() {
             @Override
             public void run() {
+
                 EditText info=findViewById(R.id.login_info);
                 EditText password=findViewById(R.id.login_password);
                 if(info.getText().toString()!=""&&password.getText().toString()!="")   //假如都不为空，则进行密码验证
@@ -95,6 +99,9 @@ public class MainActivity extends AppCompatActivity {
                             //假如200则表示登录成功,进行缓存,
                             if(result.data!=null) {
                                 Intent intent=new Intent();
+                                ACache mcache=ACache.get(that);
+                                mcache.put("user_id", result.data.getLoginId());
+                                mcache.put("token",result.data.getTokenValue());
                                 intent.setClass(MainActivity.this, UserCenterActivity.class);
                                 startActivity(intent);
                             }
