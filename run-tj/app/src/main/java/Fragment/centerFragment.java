@@ -1,5 +1,6 @@
 package Fragment;
 
+import Utils.ACache;
 import activity.CenterActivity;
 import activity.RunRecordActivity;
 import activity.UserInfoActivity;

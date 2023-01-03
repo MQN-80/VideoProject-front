@@ -1,11 +1,13 @@
 package com.example.myapplication;
 
 import Service.MessageService;
+import Utils.ACache;
 import Utils.PoseRecognition;
 import activity.RegisterActivity;
 import activity.UserCenterActivity;
 import activity.verification;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -80,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void login(){
+        Context that=this;
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -97,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                             Response mid=login.postAsync("/Login",params);
                             Gson gson=new Gson();
                             LoginEntity result= null;
+                            System.out.println(mid.headers("Set-Cookie").get(0));
                             try {
                                 result = gson.fromJson(mid.body().string(), LoginEntity.class);
                             } catch (IOException e) {
@@ -104,6 +108,10 @@ public class MainActivity extends AppCompatActivity {
                             }
                             //假如200则表示登录成功,进行缓存,
                             if(result.data!=null) {
+                                System.out.println(result.data.getLoginId());
+                                ACache mCache= ACache.get(that);
+                                mCache.put("user_id",result.data.getLoginId());
+                                mCache.put("token",result.data.getTokenValue());
                                 Intent intent=new Intent();
                                 intent.setClass(MainActivity.this, UserCenterActivity.class);
                                 startActivity(intent);
