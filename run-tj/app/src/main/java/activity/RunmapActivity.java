@@ -224,8 +224,13 @@ public class RunmapActivity extends AppCompatActivity  {
 
                 String Time=getChronometerSeconds(chronometer);
                 Log.e("停止计时", Time);
-                int pace= (int) (totalDistance/mStepDetector);//步幅
-                int steps_frequency= (int) (mStepDetector/(Integer.valueOf(Time).intValue()*60));
+                int pace;//步幅
+                int steps_frequency = (int) (mStepDetector / (Integer.valueOf(Time).intValue() * 60));
+                if(mStepDetector==0)
+                    pace=0;
+                else {
+                    pace= (int) (totalDistance / mStepDetector);
+                }
 
                 //传输数据
                 ACache mCache=ACache.get(that);
@@ -236,27 +241,27 @@ public class RunmapActivity extends AppCompatActivity  {
                 if(totalDistance!=0){
                     res.put("distance", String.valueOf(totalDistance));
                 }else{
-                    res.put("distance",null);
+                    res.put("distance","0");
                 }
                 if(pace!=0){
                     res.put("pace", String.valueOf(pace));
                 }else{
-                    res.put("pace",null);
+                    res.put("pace","0");
                 }
                 if(mStepDetector!=0){
                     res.put("steps", String.valueOf(mStepDetector));
                 }else{
-                    res.put("steps",null);
+                    res.put("steps","0");
                 }
                 if(steps_frequency!=0){
                     res.put("steps_frequency", String.valueOf(steps_frequency));
                 }else{
-                    res.put("steps_frequency",null);
+                    res.put("steps_frequency","0");
                 }
                 if(!Time.isEmpty()){
                     res.put("time",Time);
                 }else{
-                    res.put("time",null);
+                    res.put("time","0");
                 }
                 Log.i("RunRecord",res.toString());
                 new Thread(new Runnable() {
@@ -265,7 +270,6 @@ public class RunmapActivity extends AppCompatActivity  {
                         call.putAsync("/record",res);
                     }
                 }).start();
-                finish();
                 AlertDialog alertDialog1 = new AlertDialog.Builder(that)
                         .setTitle("通知")//标题
                         .setMessage("跑步结束！")//内容
