@@ -1,5 +1,6 @@
 package activity;
 
+import Utils.ACache;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -48,35 +49,41 @@ public class UserInfoEditActivity extends AppCompatActivity implements View.OnCl
                 finish();
                 break;
             }
-            case(R.id.input_editPhysical):{
+            case(R.id.input_editUserInfo):{
+                ACache mCache=ACache.get(UserInfoEditActivity.this);
                 asyncCall call=new asyncCall();
                 Map<String,String> res=new HashMap<>();
-                res.put("id",as_id);
-                if(!editName.getText().toString().isEmpty()){
-                    res.put("name",editName.getText().toString());
+                res.put("avator",mCache.getAsString("avator"));
+                if(!editBirthday.getText().toString().isEmpty()){
+                    res.put("birthday",editBirthday.getText().toString());
                 }else{
-                    res.put("name",null);
+                    res.put("birthday",mCache.getAsString("birthday"));
                 }
-                if(!editGender.getText().toString().isEmpty()){
-                    res.put("gender",editGender.getText().toString());
+                res.put("createTime",mCache.getAsString("create_time"));
+                if(!editDetail.getText().toString().isEmpty()){
+                    res.put("detail",editDetail.getText().toString());
                 }else{
-                    res.put("gender",null);
+                    res.put("detail",mCache.getAsString("detail"));
                 }
                 if(!editEmail.getText().toString().isEmpty()){
                     res.put("email",editEmail.getText().toString());
                 }else{
-                    res.put("email",null);
+                    res.put("email",mCache.getAsString("email"));
                 }
-                if(!editBirthday.getText().toString().isEmpty()){
-                    res.put("birthday",editBirthday.getText().toString());
+                if(!editGender.getText().toString().isEmpty()){
+                    res.put("gender",editGender.getText().toString());
                 }else{
-                    res.put("birthday",null);
+                    res.put("gender",mCache.getAsString("gender"));
                 }
-                if(!editDetail.getText().toString().isEmpty()){
-                    res.put("detail",editDetail.getText().toString());
+                res.put("id",mCache.getAsString("user_id"));
+                if(!editName.getText().toString().isEmpty()){
+                    res.put("name",editName.getText().toString());
                 }else{
-                    res.put("detail",null);
+                    res.put("name",mCache.getAsString("name"));
                 }
+                res.put("password",mCache.getAsString("password"));
+                res.put("phone",mCache.getAsString("phone"));
+                res.put("rank","0");
                 Log.i("UserInfoEditInfo",res.toString());
                 new Thread(new Runnable() {
                     @Override

@@ -1,5 +1,6 @@
 package activity;
 
+import Utils.ACache;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
@@ -74,11 +75,12 @@ public class RunRecordActivity extends AppCompatActivity implements View.OnClick
         new Thread(new Runnable() {
             @Override
             public void run() {
+                ACache mCache=ACache.get(RunRecordActivity.this);
                 asyncCall asyncCall = new asyncCall();
                 ArrayList<String> idList = new ArrayList<>();
                 //Record_box record_box_inside;
                 // 获取要查询记录的id
-                idList.add("10");
+                idList.add(mCache.getAsString("user_id"));
                 // 返回response解析Json
                 Response response = asyncCall.getAsync("/record",idList);
                 try{

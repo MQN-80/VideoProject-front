@@ -397,7 +397,7 @@ public class clubFragment extends Fragment implements View.OnClickListener{
         }).start();
         //绑定顶部栏布局
         headFrameLayout=ClubView.findViewById(R.id.headFrameLayout);
-        headFrameLayout.setUser_Name(mCache.getAsString("user_id"));
+        headFrameLayout.setUser_Name(mCache.getAsString("name"));
         headFrameLayout.setUser_State("正在观看 《真夏夜之梦》");
         return ClubView;
     }
