@@ -115,15 +115,24 @@
                   android:exported="true"
                   android:label="@string/title_activity_User_info"
                   android:theme="@style/Theme.MyApplication.NoActionBar"/>
+
         <activity android:name="activity.MemberListActivity"
                   android:exported="true"
                   android:theme="@style/Theme.MyApplication.NoActionBar"/>
+
         <activity android:name="activity.ClubInfoChangeActivity"
                   android:exported="true"
                   android:theme="@style/Theme.MyApplication.NoActionBar"/>
+
+        <activity android:name="activity.physicalActivity"
+                  android:exported="true"
+                  android:label="@string/title_activity_PhysicalData"
+                  android:theme="@style/Theme.MyApplication.NoActionBar"/>
+
         <activity android:name="activity.SendPostActivity"
                   android:exported="true"
                   android:theme="@style/Theme.MyApplication.NoActionBar"/>
+
         <activity android:name="activity.RunmapActivity"
                   android:label="@string/title_activity_Run_map"
                   android:exported="true"
@@ -136,4 +145,5 @@
         </activity>
 
     </application>
+
 </manifest>
