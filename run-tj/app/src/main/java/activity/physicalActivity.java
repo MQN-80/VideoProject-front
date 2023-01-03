@@ -1,5 +1,6 @@
 package activity;
 
+import Utils.ACache;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -73,10 +74,11 @@ public class physicalActivity extends AppCompatActivity implements View.OnClickL
         new Thread(new Runnable() {
             @Override
             public void run() {
+                ACache mCache=ACache.get(physicalActivity.this);
                 asyncCall asyncCall = new asyncCall();
                 ArrayList<String> idList = new ArrayList<>();
                 // 获取要查询记录的id
-                idList.add("10");
+                idList.add(mCache.getAsString("user_id"));
                 // 返回response解析Json
                 Response response = asyncCall.getAsync("/physical",idList);
                 try{

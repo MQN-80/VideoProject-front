@@ -13,8 +13,8 @@
         tools:visibility="visible">
 
     <LinearLayout
-            android:layout_width="414dp"
-            android:layout_height="298dp"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
             android:background="@drawable/edge"
             android:id="@+id/user_upPart">
 
@@ -29,6 +29,7 @@
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/center"
                     android:id="@+id/imageView7"
+                    android:background="@drawable/avator_setting"
                     tools:layout_editor_absoluteY="311dp"
                     tools:layout_editor_absoluteX="96dp"/>
         </LinearLayout>

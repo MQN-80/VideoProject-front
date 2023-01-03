@@ -1,5 +1,6 @@
 package activity;
 
+import Utils.ACache;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -88,8 +89,9 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
             public void run() {
                 asyncCall asyncCall = new asyncCall();
                 ArrayList<String> idList = new ArrayList<>();
+                ACache mCache=ACache.get(UserInfoActivity.this);
                 // 获取要查询记录的id
-                idList.add("4");
+                idList.add(mCache.getAsString("user_id"));
                 // 返回response解析Json
                 Response response = asyncCall.getAsync("/user",idList);
                 try{

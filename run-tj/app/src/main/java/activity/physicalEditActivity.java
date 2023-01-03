@@ -1,5 +1,6 @@
 package activity;
 
+import Utils.ACache;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +22,6 @@ public class physicalEditActivity extends AppCompatActivity implements View.OnCl
     EditText editBust;
     EditText editWaist;
     EditText editHipline;
-    String as_id;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,9 +50,10 @@ public class physicalEditActivity extends AppCompatActivity implements View.OnCl
                 break;
             }
             case(R.id.input_editPhysical):{
+                ACache mCache=ACache.get(physicalEditActivity.this);
                 asyncCall call=new asyncCall();
                 Map<String,String> res=new HashMap<>();
-                res.put("id",as_id);
+                res.put("id",mCache.getAsString("user_id"));
                 res.put("height",editHeight.getText().toString());
                 res.put("weight",editWeight.getText().toString());
                 res.put("bmi",editBmi.getText().toString());
