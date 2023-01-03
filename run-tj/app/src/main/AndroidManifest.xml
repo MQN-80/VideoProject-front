@@ -143,7 +143,26 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
+        <activity android:name="activity.physicalEditActivity"
+                  android:label="@string/title_activity_Run_map"
+                  android:exported="true"
+                  android:theme="@style/Theme.MyApplication.NoActionBar">
+        </activity>
+        <activity android:name="activity.FollowActivity"
+                  android:label="@string/title_activity_Run_map"
+                  android:exported="true"
+                  android:theme="@style/Theme.MyApplication.NoActionBar">
+        </activity>
+        <activity android:name="activity.FeedbackActivity"
+                  android:label="@string/title_activity_Run_map"
+                  android:exported="true"
+                  android:theme="@style/Theme.MyApplication.NoActionBar">
+        </activity>
+        <activity android:name="activity.UserInfoEditActivity"
+                  android:label="@string/title_activity_Run_map"
+                  android:exported="true"
+                  android:theme="@style/Theme.MyApplication.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

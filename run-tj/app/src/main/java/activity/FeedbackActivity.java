@@ -1,5 +1,6 @@
 package activity;
 
+import Utils.ACache;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,9 +47,10 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
                 break;
             }
             case(R.id.input_PushFeedback):{
+                ACache mCache=ACache.get(FeedbackActivity.this);
                 asyncCall call=new asyncCall();
                 Map<String,String> res=new HashMap<>();
-                res.put("id",as_id);
+                res.put("id",mCache.getAsString("user_id"));
                 res.put("content",editText.getText().toString());
                 Log.i("FeedBackInfo",res.toString());
                 new Thread(new Runnable() {

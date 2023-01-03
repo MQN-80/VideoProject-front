@@ -1,5 +1,6 @@
 package activity;
 
+import Utils.ACache;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -88,10 +89,11 @@ public class FollowActivity extends AppCompatActivity implements View.OnClickLis
         new Thread(new Runnable() {
             @Override
             public void run() {
+                ACache mCache=ACache.get(FollowActivity.this);
                 asyncCall asyncCall = new asyncCall();
                 ArrayList<String> idList = new ArrayList<>();
                 // 获取要查询记录的id
-                idList.add("10");
+                idList.add(mCache.getAsString("user_id"));
                 // 返回response解析Json
                 Response response = asyncCall.getAsync("/follow",idList);
                 try{
