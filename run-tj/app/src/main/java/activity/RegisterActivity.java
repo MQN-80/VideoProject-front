@@ -35,6 +35,8 @@ public class RegisterActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ACache mCache;   //引入缓存
     private Context that=this;
+
+    private boolean valid=false;   //判断手机验证是否成功
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     /**
@@ -107,7 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 try {
                                     mid = response.body().string();
                                     if(mid.equals("success"))
-                                        jump();
+                                        userinfoSubmit();   //验证成功将其改为true
                                     else{
                                         message.setText("");
                                         Message msg = new Message();
@@ -135,7 +138,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
     public void jump() {
         Intent intent = new Intent();
-        intent.setClass(RegisterActivity.this, realRegisterActivity.class);
+        intent.setClass(RegisterActivity.this, MainActivity.class);
         startActivity(intent);
     }
    public Handler handle =new Handler(Looper.getMainLooper()){
@@ -151,6 +154,35 @@ public class RegisterActivity extends AppCompatActivity {
             }
         };
     };
+    //上传用户信息
+    public void userinfoSubmit(){
+            EditText phone = findViewById(R.id.phone_verify);
+            EditText user_name = findViewById(R.id.register_name);
+            EditText user_password = findViewById(R.id.register_password);
+            String phones = phone.getText().toString();
+            String username = user_name.getText().toString();
+            String password = user_password.getText().toString();
+            if (username.equals("") || password.equals("")) {
+                Dialog.showDialog("提示", "请填写完整后再注册", this);
+            } else {
+                asyncCall call = new asyncCall();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Map<String,String>info=new HashMap<>();
+                        info.put("name",username);
+                        info.put("phone",phones);
+                        info.put("password",password);
+                        info.put("avator","http://106.12.131.109:8083/avator/E6F83FB5674D78A9E05011AC0200343C.jpg");
+                        call.postAsync("/user",info);
+                    }
+
+                }).start();
+            }
+            jump();
+        }
+
+    }
 
 
 
@@ -159,5 +191,3 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-
-}
