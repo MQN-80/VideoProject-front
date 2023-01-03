@@ -49,7 +49,7 @@
                 android:layout_width="136dp"
                 android:layout_height="129dp"
                 android:src="@drawable/center"
-                android:id="@+id/avatar8"/>
+                android:id="@+id/avatar9"/>
     </LinearLayout>
 
     <LinearLayout

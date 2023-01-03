@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,10 +25,13 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class UserInfoActivity extends AppCompatActivity implements View.OnClickListener{
+    ImageView avatar;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_info);
+
+        avatar = findViewById(R.id.avatar9);
 
         TextView line1_1 = findViewById(R.id.line1_1);
         TextView line2_1 = findViewById(R.id.line2_1);
@@ -61,6 +65,8 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
                         JSONObject object=(JSONObject)msg.obj;
                         // Json处理器
                         try {
+                            String UserIcon = object.getString("avator");
+                            Log.i("头像是",UserIcon);
                             String name = object.getString("name");
                             String gender = object.getString("gender");
                             String phone = object.getString("phone");
@@ -68,6 +74,8 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
                             String birthday = object.getString("birthday");
                             String detail = object.getString("detail");
                             String create_time = object.getString("createTime").substring(0,9);
+                            Bitmap bmp = Utils.BitMap.returnBitMap(UserIcon);
+                            avatar.setImageBitmap(bmp);
                             line1_2.setText(name);
                             line2_2.setText(gender);
                             line3_2.setText(phone);
@@ -113,6 +121,8 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
         // 找编辑
         TextView edit = findViewById(R.id.edit_userInfo);
         edit.setOnClickListener(this);
+        //找头像按钮
+        avatar.setOnClickListener(this);
     }
 
     @Override
@@ -126,6 +136,11 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
             }
             case R.id.edit_userInfo: {
                 Intent intent = new Intent(UserInfoActivity.this,UserInfoEditActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.avatar9:{
+                Intent intent = new Intent(UserInfoActivity.this,testActivity.class);
                 startActivity(intent);
                 break;
             }
