@@ -82,7 +82,7 @@
                 </TextView>
 
                 <TextView
-                        android:text="114514"
+                        android:text="社团ID: 114514"
                         android:textColor="@color/white"
                         android:singleLine="true"
                         android:textSize="15sp"
@@ -93,14 +93,14 @@
             </LinearLayout>
         </LinearLayout>
         <TextView
-                android:text="1145年1月4日"
+                android:text="您还未加入该社团"
                 android:paddingLeft="10dp"
                 android:textColor="@color/white"
                 android:singleLine="true"
                 android:textSize="15sp"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:id="@+id/Club_CreateTime"
+                android:id="@+id/Club_YourRank"
                 android:textStyle="bold">
         </TextView>
         <TextView
@@ -139,7 +139,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:id="@+id/Club_MemberNumber"
-                android:text="114人"/>
+                android:text=""/>
         <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
