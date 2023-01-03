@@ -96,11 +96,6 @@ public class RunRecordActivity extends AppCompatActivity implements View.OnClick
                 }
             }
         }).start();
-
-        // 动态添加
-        /*LayoutInflater layoutInflater = LayoutInflater.from(this);
-        record_box = (Record_box) layoutInflater.inflate(R.layout.record_box_real,null,false);
-        recordFrame.addView(record_box);*/
     }
 
     @Override

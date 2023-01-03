@@ -1,8 +1,6 @@
 package Fragment;
 
-import activity.CenterActivity;
-import activity.RunRecordActivity;
-import activity.UserInfoActivity;
+import activity.*;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -62,7 +60,7 @@ public class centerFragment extends Fragment implements View.OnClickListener{
                 asyncCall asyncCall = new asyncCall();
                 ArrayList<String> idList = new ArrayList<>();
                 // 要查询的id
-                idList.add("8");
+                idList.add("10");
                 // 返回response解析Json
                 Response response = asyncCall.getAsync("/user",idList);
                 try {
@@ -72,7 +70,7 @@ public class centerFragment extends Fragment implements View.OnClickListener{
                     // 设置头像为用户头像
                     Message msg = new Message();
                     msg.what = 0;
-                    msg.obj = Utils.BitMap.returnBitMap(UserIcon);;
+                    msg.obj = Utils.BitMap.returnBitMap(UserIcon);
                     handle.sendMessage(msg);
                 } catch (IOException | JSONException e) {
                     throw new RuntimeException(e);
@@ -85,6 +83,15 @@ public class centerFragment extends Fragment implements View.OnClickListener{
         runToRecord.setOnClickListener(this);
         // Inflate the layout for this fragment
         avatar.setOnClickListener(this);
+        //取身体数据按钮，并设置跳转事件
+        TextView physical = CenterView.findViewById(R.id.jumpToPhysicalData);
+        physical.setOnClickListener(this);
+        //取反馈信息按钮，并设置跳转事件
+        TextView feedback = CenterView.findViewById(R.id.jumpToFeedback);
+        feedback.setOnClickListener(this);
+        //取关注的人按钮，并设置跳转事件
+        TextView follow = CenterView.findViewById(R.id.jumpToFollow);
+        follow.setOnClickListener(this);
         return CenterView;
     }
 
@@ -100,6 +107,22 @@ public class centerFragment extends Fragment implements View.OnClickListener{
             case R.id.imageView7:{
                 Intent intent = new Intent(getActivity(), UserInfoActivity.class);
                 startActivity(intent);
+                break;
+            }
+            case R.id.jumpToPhysicalData:{
+                Intent intent = new Intent(getActivity(), physicalActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.jumpToFeedback:{
+                Intent intent = new Intent(getActivity(), FeedbackActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.jumpToFollow:{
+                Intent intent = new Intent(getActivity(), FollowActivity.class);
+                startActivity(intent);
+                break;
             }
         }
     }

@@ -1,10 +1,13 @@
 package activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class UserInfoActivity extends AppCompatActivity {
+public class UserInfoActivity extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +66,7 @@ public class UserInfoActivity extends AppCompatActivity {
                             String email = object.getString("email");
                             String birthday = object.getString("birthday");
                             String detail = object.getString("detail");
-                            String create_time = object.getString("create_time");
+                            String create_time = object.getString("createTime").substring(0,9);
                             line1_2.setText(name);
                             line2_2.setText(gender);
                             line3_2.setText(phone);
@@ -86,7 +89,7 @@ public class UserInfoActivity extends AppCompatActivity {
                 asyncCall asyncCall = new asyncCall();
                 ArrayList<String> idList = new ArrayList<>();
                 // 获取要查询记录的id
-                idList.add("10");
+                idList.add("4");
                 // 返回response解析Json
                 Response response = asyncCall.getAsync("/user",idList);
                 try{
@@ -101,5 +104,29 @@ public class UserInfoActivity extends AppCompatActivity {
                 }
             }
         }).start();
+
+        // 设置返回按钮
+        ImageView backToCenter2 = findViewById(R.id.backToCenter2);
+        backToCenter2.setOnClickListener(this);
+        // 找编辑
+        TextView edit = findViewById(R.id.edit_userInfo);
+        edit.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.backToCenter2:{
+                Intent intent = new Intent(UserInfoActivity.this,UserCenterActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.edit_userInfo: {
+                Intent intent = new Intent(UserInfoActivity.this,UserInfoEditActivity.class);
+                startActivity(intent);
+                break;
+            }
+        }
     }
 }
