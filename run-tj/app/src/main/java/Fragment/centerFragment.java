@@ -124,6 +124,9 @@ public class centerFragment extends Fragment implements View.OnClickListener{
         // 设置跳转按钮
         TextView runToRecord = CenterView.findViewById(R.id.jumpToRunRecord);
         runToRecord.setOnClickListener(this);
+        // 设置搜索按钮
+        ImageView button=CenterView.findViewById(R.id.search_user);
+        button.setOnClickListener(this);
         // Inflate the layout for this fragment
         avatar.setOnClickListener(this);
         //取身体数据按钮，并设置跳转事件
@@ -164,6 +167,11 @@ public class centerFragment extends Fragment implements View.OnClickListener{
             }
             case R.id.jumpToFollow:{
                 Intent intent = new Intent(getActivity(), FollowActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.search_user:{
+                Intent intent = new Intent(getActivity(), UserSearchActivity.class);
                 startActivity(intent);
                 break;
             }
