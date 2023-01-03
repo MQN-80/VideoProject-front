@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+    <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="90dp">
+        <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/center"
+                android:layout_gravity="center"
+                android:id="@+id/avatarInFollow">
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="90dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="这是人的名字"
+                android:textSize="30sp"
+                android:layout_gravity="center"
+                android:id="@+id/nameInFollow">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="90dp">
+        <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edge2"
+                android:text="已关注"
+                android:textSize="30sp"
+                android:id="@+id/statusInFollow">
+        </TextView>
+    </LinearLayout>
+</LinearLayout>

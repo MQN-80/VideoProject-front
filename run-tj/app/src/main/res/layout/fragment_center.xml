@@ -116,6 +116,7 @@
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
                         android:text="身体数据"
+                        android:id="@+id/jumpToPhysicalData"
                         android:gravity="center"
                         android:textStyle="bold">
                 </TextView>
@@ -139,10 +140,40 @@
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="100dp"
                           android:background="@color/white">
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="match_parent"
-                          android:text="kx来全写了">
+                <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent">
+                </ImageView>
+
+                <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/follow">
+                </ImageView>
+
+                <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="match_parent"
+                        android:text="关注的人"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:id="@+id/jumpToFollow">
                 </TextView>
+
+                <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="match_parent"
+                        android:text="反馈意见"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:id="@+id/jumpToFeedback">
+                </TextView>
+
+                <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/feedback">
+                </ImageView>
             </LinearLayout>
 
         </LinearLayout>
