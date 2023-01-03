@@ -1,5 +1,6 @@
 package activity;
 
+import Utils.ACache;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,11 +30,15 @@ public class SendPostActivity extends AppCompatActivity implements View.OnClickL
             case(R.id.input_sendPost):{
                 asyncCall call=new asyncCall();
                 Map<String,String> res=new HashMap<>();
+                ACache mCache=ACache.get(this);
+                String token=mCache.getAsString("token");
+                Map<String,String> head=new HashMap<>();
+                head.put("satoken",token);
                 res.put("context",editText1.getText().toString());
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        call.postAsync("/article",res);
+                        call.postAsync("/article",head,res);
                     }
                 }).start();
                 AlertDialog alertDialog1 = new AlertDialog.Builder(this)
@@ -51,7 +56,6 @@ public class SendPostActivity extends AppCompatActivity implements View.OnClickL
                         })
                         .create();
                 alertDialog1.show();
-                finish();
                 break;
             }
         }
