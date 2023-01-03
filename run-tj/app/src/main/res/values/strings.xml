@@ -18,6 +18,9 @@
     <string name="title_activity_User_info">UserInfoActivity</string>
     <string name="title_activity_PhysicalData">PhysicalActivity</string>
     <string name="title_activity_Run_map">RunmapActivity</string>
+    <string name="distance">总路程：0 m</string>
+    <string name="speed">当前速度: 0 m/s</string>
+    <string name="step">当前步数: 0</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="center_activity">"Center_activity</string>
