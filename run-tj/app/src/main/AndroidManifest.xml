@@ -163,6 +163,11 @@
                   android:exported="true"
                   android:theme="@style/Theme.MyApplication.NoActionBar">
         </activity>
+        <activity android:name="activity.OtherUserInfoActivity"
+                  android:label="@string/title_activity_Run_map"
+                  android:exported="true"
+                  android:theme="@style/Theme.MyApplication.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

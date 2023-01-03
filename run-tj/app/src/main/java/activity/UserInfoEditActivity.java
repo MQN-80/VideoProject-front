@@ -53,13 +53,12 @@ public class UserInfoEditActivity extends AppCompatActivity implements View.OnCl
                 ACache mCache=ACache.get(UserInfoEditActivity.this);
                 asyncCall call=new asyncCall();
                 Map<String,String> res=new HashMap<>();
-                res.put("avator",mCache.getAsString("avator"));
+                res.put("id",mCache.getAsString("user_id"));
                 if(!editBirthday.getText().toString().isEmpty()){
                     res.put("birthday",editBirthday.getText().toString());
                 }else{
                     res.put("birthday",mCache.getAsString("birthday"));
                 }
-                res.put("createTime",mCache.getAsString("create_time"));
                 if(!editDetail.getText().toString().isEmpty()){
                     res.put("detail",editDetail.getText().toString());
                 }else{
@@ -75,15 +74,11 @@ public class UserInfoEditActivity extends AppCompatActivity implements View.OnCl
                 }else{
                     res.put("gender",mCache.getAsString("gender"));
                 }
-                res.put("id",mCache.getAsString("user_id"));
                 if(!editName.getText().toString().isEmpty()){
                     res.put("name",editName.getText().toString());
                 }else{
                     res.put("name",mCache.getAsString("name"));
                 }
-                res.put("password",mCache.getAsString("password"));
-                res.put("phone",mCache.getAsString("phone"));
-                res.put("rank","0");
                 Log.i("UserInfoEditInfo",res.toString());
                 new Thread(new Runnable() {
                     @Override

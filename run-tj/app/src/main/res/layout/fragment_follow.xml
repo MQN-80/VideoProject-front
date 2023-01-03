@@ -19,6 +19,27 @@
         </TextView>
     </LinearLayout>
 
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:weightSum="100">
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="80"
+                android:id="@+id/input_box"
+                android:orientation="vertical"
+        />
+        <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:background="@drawable/search"
+                android:id="@+id/getSearchButton"
+        />
+    </LinearLayout>
+
     <ScrollView android:layout_width="match_parent"
                 android:layout_height="match_parent">
         <LinearLayout
