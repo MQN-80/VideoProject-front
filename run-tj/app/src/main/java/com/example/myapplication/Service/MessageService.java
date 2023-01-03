@@ -1,19 +1,18 @@
-package Service;
+package com.example.myapplication.Service;
 
 import DBHelper.DBHelper;
-import Utils.ACache;
+
 import android.app.Service;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Binder;
 import android.os.IBinder;
-import android.util.Log;
-import android.widget.TextView;
-import com.example.myapplication.R;
+
 import net.JWebSocket;
 import net.asyncCall;
 import okhttp3.Response;
+
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 import org.json.JSONException;
@@ -22,10 +21,7 @@ import org.json.JSONObject;
 import java.net.URI;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-
-import static android.content.ContentValues.TAG;
 
 public class MessageService extends Service {
     private static WebSocketClient webSocketClient;

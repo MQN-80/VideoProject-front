@@ -1,23 +1,30 @@
 package Fragment;
 
-import activity.ClubChatActivity;
-import activity.ClubIndexActivity;
-import activity.ClubSearchActivity;
-import activity.CreateClubActivity;
-import android.content.Intent;
+import activity.*;
+import android.content.*;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import bean.*;
 import com.example.myapplication.R;
 import net.asyncCall;
@@ -27,10 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,10 +52,69 @@ public class clubFragment extends Fragment implements View.OnClickListener{
     String imageUrl = "http://hiphotos.baidu.com/baidu/pic/item/7d8aebfebf3f9e125c6008d8.jpg";
 
     List<JSONObject> clubList=new ArrayList<>();
+
+    List<JSONObject> postLists=new ArrayList<>();
     String []arr={"金逸太强了小组","软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群",
             "金逸太强了小组","软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群","金逸太强了小组",
             "软工人","Java EE已退群设计","2022软件设计模式课程群","杀软二次元群"};
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(getActivity());
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.CART_BROADCAST");
+        BroadcastReceiver mItemViewListClickReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent){
+                String msg = intent.getStringExtra("data");
+                if("refresh".equals(msg)){
+                    refresh();
+                }
+                else if("refresh1".equals(msg)){
+                    refresh1();
+                }
+            }
+        };
+        broadcastManager.registerReceiver(mItemViewListClickReceiver, intentFilter);
+    }
+    private void refresh1(){
+        LinearLayout Frame=ClubView.findViewById(R.id.chatFrame);
+        Frame.removeAllViews();
+        Button button=ClubView.findViewById(R.id.button_ToCommunity);
+        onClick(button);
+    }
+    private void refresh() {
+        LinearLayout Frame=ClubView.findViewById(R.id.chatFrame);
+        Frame.removeAllViews();
+        clubList=new ArrayList<>();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                asyncCall asyncCall = new asyncCall();
+                ArrayList<String> user_id = new ArrayList<>();
+                // 获取要查询记录的id
+                user_id.add("6");
+                // 返回response解析Json
+                Response response = asyncCall.getAsync("/getClub",user_id);
+                Log.i("ClubActivity",response.toString());
+                try{
+                    JSONArray jsonArray = new JSONArray(Objects.requireNonNull(response.body()).string());
+                    for(int i=0;i<jsonArray.length();i++){
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        clubList.add(jsonObject);
+                        Message msg = new Message();
+                        msg.what = 0;
+                        msg.obj = jsonObject;
+                        handle.sendMessage(msg);
+                    }
+                }
+                catch (IOException | JSONException e){
+                    throw new RuntimeException(e);
+                }
+            }
+        }).start();
+    }
     final Handler handle =new Handler(Looper.getMainLooper()){
         @Override
         public void handleMessage(Message msg) {
@@ -59,22 +122,83 @@ public class clubFragment extends Fragment implements View.OnClickListener{
             LayoutInflater layoutInflater = LayoutInflater.from(getContext());
             switch (msg.what) {
                 case 0: {
-                    String name = arr[0];
-                    chatLayout = (ChatLayout) layoutInflater.inflate(R.layout.club_chat_real, null, false);
-                    chatLayout.setClub_Name(arr[0]);
-                    chatLayout.setClub_Chat("2051914 金逸 ：我来全写完了");
-                    chatLayout.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(getActivity(), ClubChatActivity.class);
-                            intent.putExtra("ClubData", name);
-                            startActivity(intent);
+                    try {
+                        JSONObject jsonObject = (JSONObject) msg.obj;
+                        ClubBoxLayout clubBoxLayout = (ClubBoxLayout) layoutInflater.inflate(R.layout.club_list_real, null, false);
+                        String name = jsonObject.getString("associationName");
+                        String id = jsonObject.getString("id");
+                        String memberNum = jsonObject.getString("memberNum");
+                        String desc = jsonObject.getString("associationDesc");
+                        clubBoxLayout.setClub_Name(name);
+                        clubBoxLayout.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(getActivity(), ClubIndexActivity.class);
+                                intent.putExtra("ClubName", name);
+                                intent.putExtra("ClubId", id);
+                                intent.putExtra("ClubDesc", desc);
+                                intent.putExtra("ClubJudge", "1");
+                                startActivity(intent);
+                            }
+                        });
+                        Frame.addView(clubBoxLayout);
+                    }
+                    catch (JSONException e){
+                        throw new RuntimeException(e);
+                    }
+                    break;
+                }
+                case 1:{
+                    Log.i("获得的动态列表：",postLists.toString());
+                    Iterator<JSONObject> iterator=postLists.iterator();
+                    while(iterator.hasNext()) {
+                        try {
+                            JSONObject jsonObject = iterator.next();
+                            CommunityBox communityBox=(CommunityBox) layoutInflater.inflate(R.layout.community_box_real,null,false);
+                            String time=jsonObject.getString("createTime");
+                            Integer postId=jsonObject.getInt("id");
+                            String name = jsonObject.getString("name");
+                            String context=jsonObject.getString("context");
+                            Integer likes=jsonObject.getInt("likes");
+                            Boolean like=jsonObject.getBoolean("like");
+                            communityBox.setUser_Name(name);
+                            communityBox.setCommunity_Box(context);
+                            communityBox.setCreate_Time(time);
+                            communityBox.setLikes(likes.toString());
+                            Log.i("该文章是否点赞",like.toString());
+                            if(like)
+                            {
+                                ImageView button=communityBox.getButton();
+                                button.setImageResource(R.drawable.liked);
+                            }
+                            else {
+                                communityBox.setButton(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        ImageView button=communityBox.getButton();
+                                        button.setImageResource(R.drawable.liked);
+                                        Integer likes=Integer.parseInt(communityBox.getLikes());
+                                        likes++;
+                                        communityBox.setLikes(likes.toString());
+                                        asyncCall call = new asyncCall();
+                                        Map<String, String> res = new HashMap<>();
+                                        Log.i("1",postId.toString());
+                                        res.put("id", postId.toString());
+                                        new Thread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                call.putAsync("/article/like", res);
+                                            }
+                                        }).start();
+                                    }
+                                });
+                            }
+                            Frame.addView(communityBox);
                         }
-                    });
-                    Frame.addView(chatLayout);
-                    Bitmap bmp = (Bitmap) msg.obj;
-                    chatLayout.setIcon(bmp);
-                    Log.i("ClubActivity", "图片连续替换开始执行！");
+                        catch (JSONException e){
+                            throw new RuntimeException(e);
+                        }
+                    }
                     break;
                 }
             }
@@ -121,8 +245,43 @@ public class clubFragment extends Fragment implements View.OnClickListener{
             //切换到朋友圈视图
             case R.id.button_ToCommunity:{
                 Frame.removeAllViews();
-                CommunityBox communityBox=(CommunityBox) layoutInflater.inflate(R.layout.community_box_real,null,false);
-                Frame.addView(communityBox);
+                Button button=new Button(getContext());
+                button.setText("发表动态");
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getActivity(), SendPostActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                Frame.addView(button);
+                postLists=new ArrayList<>();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        asyncCall asyncCall = new asyncCall();
+                        ArrayList<String> page = new ArrayList<>();
+                        // 获取要查询记录的id
+                        page.add("1");
+                        // 返回response解析Json
+                        Response response = asyncCall.getAsync("/article/page",page);
+                        try{
+                            JSONArray jsonArray = new JSONArray(Objects.requireNonNull(response.body()).string());
+                            for(int i=0;i<jsonArray.length();i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                postLists.add(jsonObject);
+                            }
+                            Message msg = new Message();
+                            msg.what = 1;
+                            msg.obj = postLists;
+                            handle.sendMessage(msg);
+                            Log.i("获得的动态列表：",postLists.toString());
+                        }
+                        catch (IOException | JSONException e){
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }).start();
                 break;
             }
             //切换到消息视图
@@ -227,6 +386,10 @@ public class clubFragment extends Fragment implements View.OnClickListener{
                     for(int i=0;i<jsonArray.length();i++){
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         clubList.add(jsonObject);
+                        Message msg = new Message();
+                        msg.what = 0;
+                        msg.obj = jsonObject;
+                        handle.sendMessage(msg);
                     }
                 }
                 catch (IOException | JSONException e){
@@ -234,7 +397,6 @@ public class clubFragment extends Fragment implements View.OnClickListener{
                 }
             }
         }).start();
-        onClick(button3);
         //绑定顶部栏布局
         headFrameLayout=ClubView.findViewById(R.id.headFrameLayout);
         headFrameLayout.setUser_Name("田所浩二");

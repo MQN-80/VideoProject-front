@@ -1,5 +1,6 @@
 package activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,7 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import bean.ClubMember;
 import com.example.myapplication.R;
 import net.asyncCall;
@@ -27,6 +30,10 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
 {
     String judge;
     String id;
+
+    Integer rank;
+
+    String []rankList={"用户","管理员","社长"};
     public void onClick(View view) {
         switch (view.getId())
         {
@@ -47,6 +54,21 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                             call.postAsync("/manager",res);
                         }
                     }).start();
+                    AlertDialog alertDialog1 = new AlertDialog.Builder(this)
+                            .setTitle("通知")//标题
+                            .setMessage("加入社团成功！")//内容
+                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent intent2 = new Intent("android.intent.action.CART_BROADCAST");
+                                    intent2.putExtra("data","refresh");
+                                    LocalBroadcastManager.getInstance(ClubIndexActivity.this).sendBroadcast(intent2);
+                                    sendBroadcast(intent2);
+                                    finish();
+                                }
+                            })
+                            .create();
+                    alertDialog1.show();
                 }
                 else
                 {
@@ -61,6 +83,21 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                             call.deleteAsync("/manager",res);
                         }
                     }).start();
+                    AlertDialog alertDialog1 = new AlertDialog.Builder(this)
+                            .setTitle("通知")//标题
+                            .setMessage("退出社团成功！")//内容
+                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent intent2 = new Intent("android.intent.action.CART_BROADCAST");
+                                    intent2.putExtra("data","refresh");
+                                    LocalBroadcastManager.getInstance(ClubIndexActivity.this).sendBroadcast(intent2);
+                                    sendBroadcast(intent2);
+                                    finish();
+                                }
+                            })
+                            .create();
+                    alertDialog1.show();
                 }
                 break;
             }
@@ -84,13 +121,14 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 String name=jsonObject.getString("name");
                                 String id=jsonObject.getString("id");
-                                String phone=jsonObject.getString("phone");
-                                User.addClubMember(id,name,phone);
+                                String member_rank=jsonObject.getString("rank");
+                                User.addClubMember(id,name,member_rank);
                             }
                             Log.i("ClubIndexActivity",User.Member_Id.toString());
                             Intent intent = new Intent(ClubIndexActivity.this, MemberListActivity.class);
                             intent.putExtra("memberList",User);
                             intent.putExtra("clubId",id);
+                            intent.putExtra("rank",rank.toString());
                             startActivity(intent);
                         }
                         catch (IOException | JSONException e){
@@ -101,9 +139,19 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
                 break;
             }
             case(R.id.changeInfo):{
-                Intent intent = new Intent(ClubIndexActivity.this, ClubInfoChangeActivity.class);
-                intent.putExtra("clubId",id);
-                startActivity(intent);
+                if(rank<2)
+                {
+                    AlertDialog alertDialog1 = new AlertDialog.Builder(this)
+                            .setTitle("警告")//标题
+                            .setMessage("您没有足够权限！")//内容
+                            .create();
+                    alertDialog1.show();
+                }
+                else if(rank==2) {
+                    Intent intent = new Intent(ClubIndexActivity.this, ClubInfoChangeActivity.class);
+                    intent.putExtra("clubId", id);
+                    startActivity(intent);
+                }
                 break;
             }
         }
@@ -140,5 +188,27 @@ public class ClubIndexActivity extends AppCompatActivity implements View.OnClick
         //设置查看社团成员
         LinearLayout button3=findViewById(R.id.club_index_member);
         button3.setOnClickListener(this);
+        //查询自己在该社团的权限
+        if(judge.equals("1")) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    asyncCall asyncCall = new asyncCall();
+                    ArrayList<String> list = new ArrayList<>();
+                    list.add("6");
+                    list.add(id);
+                    // 返回response解析Json
+                    Response response = asyncCall.getAsync("/getRank", list);
+                    try {
+                        rank = Integer.parseInt(Objects.requireNonNull(response.body()).string());
+                        Log.i("权限为", rank.toString());
+                        TextView textView=findViewById(R.id.Club_YourRank);
+                        textView.setText("您在该社团的权限为："+rankList[rank]);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }).start();
+        }
     }
 }
