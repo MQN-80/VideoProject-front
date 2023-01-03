@@ -95,6 +95,7 @@
                     android:drawableStart="@drawable/ic_baseline_email_24"
                     android:drawableLeft="@drawable/ic_baseline_email_24"
                     android:drawablePadding="16dp"
+                    android:inputType="text"
                     android:hint="输入手机号"
                     android:padding="16dp"
                     android:textSize="14sp" />
@@ -118,6 +119,7 @@
                 android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:drawableEnd="@drawable/ic_baseline_visibility_24"
                 android:drawableRight="@drawable/ic_baseline_visibility_24"
+                android:inputType="text"
                 android:drawablePadding="16dp"
                 android:hint="输入验证码"
                 android:padding="16dp"
@@ -135,6 +137,7 @@
 
                 android:drawablePadding="16dp"
                 android:hint="输入用户名"
+                android:inputType="text"
                 android:padding="16dp"
                 android:textSize="14sp" />
         <EditText
