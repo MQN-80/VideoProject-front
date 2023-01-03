@@ -96,7 +96,6 @@
                     android:drawableLeft="@drawable/ic_baseline_email_24"
                     android:drawablePadding="16dp"
                     android:hint="输入手机号"
-                    android:inputType="textEmailAddress"
                     android:padding="16dp"
                     android:textSize="14sp" />
             <Button
@@ -119,9 +118,38 @@
                 android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:drawableEnd="@drawable/ic_baseline_visibility_24"
                 android:drawableRight="@drawable/ic_baseline_visibility_24"
-
                 android:drawablePadding="16dp"
                 android:hint="输入验证码"
+                android:padding="16dp"
+                android:textSize="14sp" />
+        <EditText
+                android:id="@+id/register_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittext_bg"
+                android:drawableStart="@drawable/ic_baseline_lock_24"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawableEnd="@drawable/ic_baseline_visibility_24"
+                android:drawableRight="@drawable/ic_baseline_visibility_24"
+
+                android:drawablePadding="16dp"
+                android:hint="输入用户名"
+                android:padding="16dp"
+                android:textSize="14sp" />
+        <EditText
+                android:id="@+id/register_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittext_bg"
+                android:drawableStart="@drawable/ic_baseline_lock_24"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawableEnd="@drawable/ic_baseline_visibility_24"
+                android:drawableRight="@drawable/ic_baseline_visibility_24"
+
+                android:drawablePadding="16dp"
+                android:hint="输入用户密码"
                 android:inputType="textPassword"
                 android:padding="16dp"
                 android:textSize="14sp" />
