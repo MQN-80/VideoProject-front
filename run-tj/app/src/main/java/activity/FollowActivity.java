@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -69,9 +70,20 @@ public class FollowActivity extends AppCompatActivity implements View.OnClickLis
                             follow_box_inside.bindStatusInFollow(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
+                                    ACache mCache = ACache.get(FollowActivity.this);
+                                    String token = mCache.getAsString("token");
                                     asyncCall call=new asyncCall();
                                     Map<String,String> res=new HashMap<>();
-
+                                    Map<String,String> head=new HashMap<>();
+                                    head.put("satoken",token);
+                                    // 获取点击了取消关注的用户的id
+                                    res.put("followUserId",user_id);
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Response response = call.postAsync("/follow",head,res);
+                                        }
+                                    }).start();
                                 }
                             });
                             recordFrame.addView(follow_box_inside);
