@@ -24,33 +24,9 @@ public class dataFragment extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
-        listen_Select();
 
     }
-    //监听点击了哪个跳转
-    public void listen_Select(){
-        ImageView img1=(ImageView)getActivity().findViewById(R.id.imageView2);
-        ImageView img2=(ImageView)getActivity().findViewById(R.id.imageView3);
-        ImageView img3=(ImageView)getActivity().findViewById(R.id.imageView4);
-        ImageView img4=(ImageView)getActivity().findViewById(R.id.imageView5);
-        ImageView img5=(ImageView)getActivity().findViewById(R.id.imageView6);
-        jump_page(img3,MainActivity.class);   //跑步计划安排
-        jump_page(img4,MainActivity.class);
-        jump_page(img5,MainActivity.class);
-        jump_page(img1,MainActivity.class);
-        jump_page(img2,MainActivity.class);
 
-    }
-    public void jump_page(ImageView img,Class mid){
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent();
-                intent.setClass(getActivity(), mid);
-                startActivity(intent);
-            }
-        });
-    }
 
 
 }
