@@ -9,6 +9,7 @@
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/drawable/edge.xml" value="0.219" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/drawable/edge2.xml" value="0.1415" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/drawable/record_bg.xml" value="0.2925" />
+        <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/drawable/styles.xml" value="0.101" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout-land/fragment_center.xml" value="0.30423280423280424" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/activity_club_info.xml" value="0.22083333333333333" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/activity_login.xml" value="0.359375" />
@@ -16,6 +17,7 @@
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/activity_register.xml" value="0.3278985507246377" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/activity_run_plan.xml" value="0.22083333333333333" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/activity_search_club.xml" value="0.22083333333333333" />
+        <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/activity_search_user.xml" value="0.22083333333333333" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/activity_splash.xml" value="0.35833333333333334" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/activity_user_center.xml" value="0.3333333333333333" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/activity_verification.xml" value="0.359375" />
@@ -28,6 +30,7 @@
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/club_headframe.xml" value="0.359375" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/club_list.xml" value="0.3197463768115942" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/community_box.xml" value="0.22083333333333333" />
+        <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/dialog_bottom.xml" value="0.335" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/follow_box.xml" value="0.21979166666666666" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/follow_box_real.xml" value="0.22083333333333333" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/fragment_center.xml" value="0.25" />
@@ -47,7 +50,9 @@
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/fragment_user_info_edit.xml" value="0.22083333333333333" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/record_box.xml" value="0.3197463768115942" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/record_box_real.xml" value="0.3333333333333333" />
+        <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/test.xml" value="0.18177083333333333" />
         <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/layout/user_info.xml" value="0.25" />
+        <entry key="..\:/VideoProject/VideoProject-front/run-tj/app/src/main/res/xml/network_security_config.xml" value="0.12552083333333333" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.188" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable/button_bg.xml" value="0.2255" />
         <entry key="..\:/javaPro/VideoProject-front/run-tj/app/src/main/res/drawable/edittext_bg.xml" value="0.2255" />
