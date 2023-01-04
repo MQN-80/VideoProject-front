@@ -378,16 +378,21 @@ public class clubFragment extends Fragment implements View.OnClickListener{
                 user_id.add(mCache.getAsString("user_id"));
                 // 返回response解析Json
                 Response response = asyncCall.getAsync("/getClub",user_id);
-                Log.i("ClubActivity",response.toString());
                 try{
-                    JSONArray jsonArray = new JSONArray(Objects.requireNonNull(response.body()).string());
-                    for(int i=0;i<jsonArray.length();i++){
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        clubList.add(jsonObject);
-                        Message msg = new Message();
-                        msg.what = 0;
-                        msg.obj = jsonObject;
-                        handle.sendMessage(msg);
+                    String string=Objects.requireNonNull(response.body()).string();
+                    Log.i("1",string);
+                    if(string=="")
+                        ;
+                    else {
+                        JSONArray jsonArray = new JSONArray(string);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            clubList.add(jsonObject);
+                            Message msg = new Message();
+                            msg.what = 0;
+                            msg.obj = jsonObject;
+                            handle.sendMessage(msg);
+                        }
                     }
                 }
                 catch (IOException | JSONException e){
