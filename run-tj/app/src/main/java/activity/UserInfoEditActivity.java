@@ -1,6 +1,7 @@
 package activity;
 
 import Utils.ACache;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,6 +41,7 @@ public class UserInfoEditActivity extends AppCompatActivity implements View.OnCl
         //绑定修改按钮
         Button button = findViewById(R.id.input_editUserInfo);
         button.setOnClickListener(this);
+
     }
 
     @Override
@@ -89,6 +91,7 @@ public class UserInfoEditActivity extends AppCompatActivity implements View.OnCl
                 finish();
                 break;
             }
+
         }
     }
 }

@@ -3,6 +3,7 @@ package activity;
 import Utils.ACache;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -45,11 +46,15 @@ public class UserSearchActivity extends AppCompatActivity implements View.OnClic
                 case 0:
                     try {
                         JSONObject jsonObject = (JSONObject) msg.obj;
+                        String UserIcon = jsonObject.getString("avator");
+                        // 获得Bitmap
+                        Bitmap avatar = Utils.BitMap.returnBitMap(UserIcon);
                         String name = jsonObject.getString("name");
                         String id = jsonObject.getString("id");
                         Follow_box follow_box = (Follow_box) layoutInflater.inflate(R.layout.follow_box_real, null, false);
                         follow_box.setNameInFollow(name);
                         follow_box.setStatusInFollow("未关注");
+                        follow_box.setAvatarInFollow(avatar);
                         follow_box.bindStatusInFollow(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
