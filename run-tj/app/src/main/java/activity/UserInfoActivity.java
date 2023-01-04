@@ -122,7 +122,6 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
         TextView edit = findViewById(R.id.edit_userInfo);
         edit.setOnClickListener(this);
         //找头像按钮
-        avatar.setOnClickListener(this);
     }
 
     @Override
@@ -136,11 +135,6 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
             }
             case R.id.edit_userInfo: {
                 Intent intent = new Intent(UserInfoActivity.this,UserInfoEditActivity.class);
-                startActivity(intent);
-                break;
-            }
-            case R.id.avatar9:{
-                Intent intent = new Intent(UserInfoActivity.this,testActivity.class);
                 startActivity(intent);
                 break;
             }

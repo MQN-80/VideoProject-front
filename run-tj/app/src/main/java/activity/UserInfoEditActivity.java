@@ -41,7 +41,9 @@ public class UserInfoEditActivity extends AppCompatActivity implements View.OnCl
         //绑定修改按钮
         Button button = findViewById(R.id.input_editUserInfo);
         button.setOnClickListener(this);
-
+        //绑定换头像
+        ImageView avatar=findViewById(R.id.avatarInEdit);
+        avatar.setOnClickListener(this);
     }
 
     @Override
@@ -91,7 +93,11 @@ public class UserInfoEditActivity extends AppCompatActivity implements View.OnCl
                 finish();
                 break;
             }
-
+            case(R.id.avatarInEdit): {
+                Intent intent = new Intent(UserInfoEditActivity.this, testActivity.class);
+                startActivity(intent);
+                break;
+            }
         }
     }
 }
